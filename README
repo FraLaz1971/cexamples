@@ -1,0 +1,25 @@
+# to compile all the examples type
+./configure
+# then type
+make
+#or
+gmake
+#to install
+make install
+#to compile only one of them, say printone.c, type
+make printone
+#to remove generated files type
+make clean
+#to remove ALL generated files, included Makefile (you have to run ./configure again, then)
+make distclean
+#to see the generated executable files
+ls . bin
+#to see all generated files
+lsa *
+#aka 
+ls -alhrt *
+#generated programs are in the current dir after make
+#or inside bin after make install
+#look also at
+#src/README
+

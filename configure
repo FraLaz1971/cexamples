@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+./configure.sh > Makefile
+echo "generated Makefile"
+ls -lhrt Makefile
+echo "you can now run:"
+echo "make"
+echo "to see all generate files type:"
+echo "lsa"
