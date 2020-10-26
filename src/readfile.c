@@ -11,9 +11,9 @@ int main(int argc, char **argv)
 				/* Read one character at a time, checking 
 				   for the End of File. EOF is defined
 				   in <stdio.h>  as -1 			*/
-  while ((c = fgetc(ptr)) != EOF)
+  while ((c = fgetc(ptr)) != EOF) /* until you reach the end of the file */
   {
-    printf("%c",c);		/* O/P the character to the screen	*/
+    printf("%c",c);		/* O/P the characters to the screen	*/
   }
 
   fclose(ptr);			/* Close the file.			*/
