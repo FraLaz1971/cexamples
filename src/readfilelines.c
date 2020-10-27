@@ -3,9 +3,11 @@
 #include <string.h>
 #include "exits.h"
 #define LMAXSIZE 256 /* max allowed line length */
-#define FMAXNUM 16   /* max allowed number of fields (columns) in a row */
-#define RS '\n'	    /* record (row) separator */
-#define FS ','	    /* record (row) separator */
+#define FSIZE 16     /* max allowed number of characters in a field (cell)  */
+#define FMAX 16      /* max allowed number of fields (columns) in a row */
+#define RMAX 16      /* max allowed number of records (rows) in a file */
+#define RS '\n'	     /* record (row) separator */
+#define FS ','	     /* record (row) separator */
 int main(int argc, char **argv)
 {
 	int c;		 /* Character read from the file. */
@@ -30,7 +32,7 @@ int main(int argc, char **argv)
                 printf("usage: %s filename\n", argv[0]);
                 return EX_BADARGS;
         } else {
-	field = (char **)malloc(FMAXNUM * bufsize * sizeof(char));
+	field = (char **)malloc(FMAX * bufsize * sizeof(char));
 		if( field == NULL)
 		{
         		perror("readfilelines.c: Unable to allocate field buffer");
@@ -57,8 +59,6 @@ int main(int argc, char **argv)
 		cc=0; fieldcount=0;fcharcount=0;
 		memcpy(temp, "", 16);
 		while( buffer[cc] != RS ){ /* while on line characters */
-			/* printf("buffer[%d] = %c\n", cc, buffer[cc]);
-			printf("processing field n. %d\n", fieldcount);*/
 			ff=1;
 			if ( (buffer[cc] != FS) ){
 				/* field[fcharcount][fieldcount]=buffer[cc]; */
@@ -71,17 +71,10 @@ int main(int argc, char **argv)
 				ff=0;
 				if(ff==0)
 					printf("FOUND! temp=%s\n", temp);
-/*					printf("FOUND! buffer[%d] = %c temp=%s\n", fcharcount, buffer[fcharcount], temp);*/
 				fieldcount++;
 				fcharcount=0;
 				memcpy(temp, "", 16);
 			}
-			/*
-			printf("found field n. %d: %s", fc, field[fcc]);
-			if (ff) 
-				fc++; 
-			ff=0;
-			*/
 			cc++;
 		}
 		printf("FOUND! temp=%s\n", temp);

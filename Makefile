@@ -5,10 +5,13 @@ CPPFLAGS = -Iinclude
 LDFLAGS = -Llib -lm
 TARGET0 = averageof3
 TARGET1 = literals
-TARGET2 = random_num_list
-TARGET3 = readfile
-TARGET4 = readfilelines
-TARGETS = readfilelines readfile random_num_list literals averageof3
+TARGET2 = main
+TARGET3 = random_num_list
+TARGET4 = readfile
+TARGET5 = readfilelines
+TARGET6 = teststrigvec
+TARGET7 = testtable
+TARGETS = testtable teststrigvec readfilelines readfile random_num_list main literals averageof3
 all: $(TARGETS)
 obj/$(TARGET0).o: src/averageof3.c
 	$(CC) -c   $< -o obj/averageof3.o $(CPPFLAGS)
@@ -18,18 +21,30 @@ obj/$(TARGET1).o: src/literals.c
 	$(CC) -c   $< -o obj/literals.o $(CPPFLAGS)
 $(TARGET1): obj/literals.o
 	$(CC) -o literals $< $(LDFLAGS)
-obj/$(TARGET2).o: src/random_num_list.c
+obj/$(TARGET2).o: src/main.c
+	$(CC) -c   $< -o obj/main.o $(CPPFLAGS)
+$(TARGET2): obj/main.o
+	$(CC) -o main $< $(LDFLAGS)
+obj/$(TARGET3).o: src/random_num_list.c
 	$(CC) -c   $< -o obj/random_num_list.o $(CPPFLAGS)
-$(TARGET2): obj/random_num_list.o
+$(TARGET3): obj/random_num_list.o
 	$(CC) -o random_num_list $< $(LDFLAGS)
-obj/$(TARGET3).o: src/readfile.c
+obj/$(TARGET4).o: src/readfile.c
 	$(CC) -c   $< -o obj/readfile.o $(CPPFLAGS)
-$(TARGET3): obj/readfile.o
+$(TARGET4): obj/readfile.o
 	$(CC) -o readfile $< $(LDFLAGS)
-obj/$(TARGET4).o: src/readfilelines.c
+obj/$(TARGET5).o: src/readfilelines.c
 	$(CC) -c   $< -o obj/readfilelines.o $(CPPFLAGS)
-$(TARGET4): obj/readfilelines.o
+$(TARGET5): obj/readfilelines.o
 	$(CC) -o readfilelines $< $(LDFLAGS)
+obj/$(TARGET6).o: src/teststrigvec.c
+	$(CC) -c   $< -o obj/teststrigvec.o $(CPPFLAGS)
+$(TARGET6): obj/teststrigvec.o
+	$(CC) -o teststrigvec $< $(LDFLAGS)
+obj/$(TARGET7).o: src/testtable.c
+	$(CC) -c   $< -o obj/testtable.o $(CPPFLAGS)
+$(TARGET7): obj/testtable.o
+	$(CC) -o testtable $< $(LDFLAGS)
 install: all
 	mv $(TARGETS) bin
 .PHONY: clean
