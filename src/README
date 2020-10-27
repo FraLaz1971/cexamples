@@ -1,4 +1,4 @@
 #averageof3 computes the average of 3 integers
 ./averageof3 10 43 21
 #random_num_list creates a list of n random integer numbers
-
+#teststrigvec.c creates a matrix of strings containing numbers

@@ -5,7 +5,7 @@
 #define LMAXSIZE 3 /* max allowed line length */
 #define FSIZE 16     /* max allowed number of characters in a field (cell) include '\0' */
 #define FMAX 16      /* max allowed number of fields (columns) in a row */
-#define RMAX 1024      /* max allowed number of records (rows) in a file */
+#define RMAX 16      /* max allowed number of records (rows) in a file */
 #define RS '\n'     /* record (row) separator */
 #define FS ','     /* record (row) separator */
 int c; /* Character read from the file. */
@@ -22,5 +22,4 @@ char temp[FSIZE];
 char *buffer;
 size_t bufsize = LMAXSIZE;
 size_t characters;
-int nrows=RMAX;
-int ncols=FMAX;
+float* data;

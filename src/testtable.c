@@ -4,7 +4,7 @@
 #include "exits.h"
 #define LMAXSIZE 3 /* max allowed line length */
 #define FSIZE 3     /* max allowed number of characters in a field (cell)  */
-#define FMAX 255      /* max allowed number of fields (columns) in a row */
+#define FMAX 3      /* max allowed number of fields (columns) in a row */
 #define RMAX 2      /* max allowed number of records (rows) in a file */
 #define RS '\n'	     /* record (row) separator */
 #define FS ','	     /* record (row) separator */
