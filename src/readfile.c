@@ -3,6 +3,7 @@
 
 int main(int argc, char **argv)
 {
+  if (argc == 2){
   int c;			/* Character read from the file.	*/
   FILE *ptr;			/* Pointer to the file. FILE is a
 				   structure  defined in <stdio.h>	*/
@@ -17,5 +18,12 @@ int main(int argc, char **argv)
   }
 
   fclose(ptr);			/* Close the file.			*/
+  return 0;
+} else
+{
+	printf("usage: %s infilename \n", argv[0]);
+	return 1;
+}
+
 }
 
