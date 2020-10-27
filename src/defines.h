@@ -23,3 +23,5 @@ char *buffer;
 size_t bufsize = LMAXSIZE;
 size_t characters;
 float* data;
+int nrows=RMAX;
+int ncols=FMAX;

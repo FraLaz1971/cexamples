@@ -3,10 +3,7 @@
 #include "defines.h"
 
 extern float *data;
-int nrows;
-int ncols;
 
-nrows=3; ncols=4;
 
 void parserow(char *mybuffer, int mncols){
             cc=0; fcharcount=0;colcount=0;
@@ -49,6 +46,7 @@ void showdata(float *mydata, int mnrows, int mncols){
 int main(int argc, char **argv)
 {
     if (argc == 2){
+    nrows=3; ncols=4;
     int c;			/* Character read from the file.	*/
     FILE *ptr;			/* Pointer to the file. FILE is a
 				   structure  defined in <stdio.h>	*/
