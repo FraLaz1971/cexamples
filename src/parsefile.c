@@ -45,8 +45,8 @@ void showdata(float *mydata, int mnrows, int mncols){
 
 int main(int argc, char **argv)
 {
-    if (argc == 2){
-    nrows=3; ncols=4;
+    if (argc == 4){
+    nrows=atoi(argv[2]); ncols=(atoi(argv[3]));
     int c;			/* Character read from the file.	*/
     FILE *ptr;			/* Pointer to the file. FILE is a
 				   structure  defined in <stdio.h>	*/
@@ -76,18 +76,18 @@ int main(int argc, char **argv)
 	rowcount=0; totlines=0; totchars=0;
 	while ((characters=getline(&buffer,&bufsize,ptr)) != EOF ) /* until you reach the end of the file */
     {
-        parserow(buffer, 4);		/* O/P the characters to the screen	*/
+        parserow(buffer, ncols);	/* O/P the characters to the screen	*/
         rowcount++;
     }
 
     fclose(ptr);			/* Close the file.			*/
-    showdata(data, 3, 4);
+    showdata(data, nrows, ncols);
 
     return 0;
 
         
     } else {
-    printf("usage: %s infilename \n", argv[0]);
+    printf("usage: %s infilename nrows ncolumns\n", argv[0]);
 	return 1;
 }
 

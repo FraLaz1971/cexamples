@@ -11,6 +11,8 @@ int main(int argc, char *argv[]){
 	if (argc != 2){
 		printf("create a list of n random integers in [%d,%d)\n", IMIN, IMAX);
 		printf("usage: %s n\n", argv[0]);
+		puts("or, if you want to save the list on a file,");
+		printf("usage: %s n > listfile.txt \n", argv[0]);
 		return EX_BADARGS;
 	} else {
 		n=atoi(argv[1]);

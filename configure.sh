@@ -22,8 +22,13 @@ do
 	TARGET=$(basename ${s%.*})
 	echo 'obj/$(TARGET'$a').o: src/'$TARGET'.c'
 	echo -e "\t"'$(CC) -c   $< -o obj/'$TARGET'.o $(CPPFLAGS)'
-	echo '$(TARGET'$a'): obj/'$TARGET'.o'
-	echo -e "\t"'$(CC) -o '$TARGET' $< $(LDFLAGS)'
+	if [[ $TARGET != "analysis" ]]
+	then
+		echo '$(TARGET'$a'): obj/'$TARGET'.o'
+		echo -e "\t"'$(CC) -o '$TARGET' $< $(LDFLAGS)'
+	else
+		echo 'analysis:'
+	fi
 	a=$(($a+1)) 
 done
 	echo 'echo created all targets' >/dev/stderr

@@ -3,52 +3,76 @@ SRC = $(wildcard src/*.c)
 OBJ = obj/*.o obj/*.obj
 CPPFLAGS = -Iinclude
 LDFLAGS = -Llib -lm
-TARGET0 = averageof3
-TARGET1 = literals
-TARGET2 = main
-TARGET3 = parsefile
-TARGET4 = random_num_list
-TARGET5 = readfile
-TARGET6 = readfilelines
-TARGET7 = teststrigvec
-TARGET8 = testtable
-TARGETS = testtable teststrigvec readfilelines readfile random_num_list parsefile main literals averageof3
+TARGET0 = analysis
+TARGET1 = averageof3
+TARGET2 = color
+TARGET3 = dynamic1
+TARGET4 = literals
+TARGET5 = madlib
+TARGET6 = main
+TARGET7 = parsefile
+TARGET8 = random_num_list
+TARGET9 = readdynamic
+TARGET10 = readfile
+TARGET11 = readfilelines
+TARGET12 = teststrigvec
+TARGET13 = testtable
+TARGETS = testtable teststrigvec readfilelines readfile readdynamic random_num_list parsefile main madlib literals dynamic1 color averageof3 analysis
 all: $(TARGETS)
-obj/$(TARGET0).o: src/averageof3.c
+obj/$(TARGET0).o: src/analysis.c
+	$(CC) -c   $< -o obj/analysis.o $(CPPFLAGS)
+analysis:
+obj/$(TARGET1).o: src/averageof3.c
 	$(CC) -c   $< -o obj/averageof3.o $(CPPFLAGS)
-$(TARGET0): obj/averageof3.o
+$(TARGET1): obj/averageof3.o
 	$(CC) -o averageof3 $< $(LDFLAGS)
-obj/$(TARGET1).o: src/literals.c
+obj/$(TARGET2).o: src/color.c
+	$(CC) -c   $< -o obj/color.o $(CPPFLAGS)
+$(TARGET2): obj/color.o
+	$(CC) -o color $< $(LDFLAGS)
+obj/$(TARGET3).o: src/dynamic1.c
+	$(CC) -c   $< -o obj/dynamic1.o $(CPPFLAGS)
+$(TARGET3): obj/dynamic1.o
+	$(CC) -o dynamic1 $< $(LDFLAGS)
+obj/$(TARGET4).o: src/literals.c
 	$(CC) -c   $< -o obj/literals.o $(CPPFLAGS)
-$(TARGET1): obj/literals.o
+$(TARGET4): obj/literals.o
 	$(CC) -o literals $< $(LDFLAGS)
-obj/$(TARGET2).o: src/main.c
+obj/$(TARGET5).o: src/madlib.c
+	$(CC) -c   $< -o obj/madlib.o $(CPPFLAGS)
+$(TARGET5): obj/madlib.o
+	$(CC) -o madlib $< $(LDFLAGS)
+obj/$(TARGET6).o: src/main.c
 	$(CC) -c   $< -o obj/main.o $(CPPFLAGS)
-$(TARGET2): obj/main.o
+$(TARGET6): obj/main.o
 	$(CC) -o main $< $(LDFLAGS)
-obj/$(TARGET3).o: src/parsefile.c
+obj/$(TARGET7).o: src/parsefile.c
 	$(CC) -c   $< -o obj/parsefile.o $(CPPFLAGS)
-$(TARGET3): obj/parsefile.o
+$(TARGET7): obj/parsefile.o
 	$(CC) -o parsefile $< $(LDFLAGS)
-obj/$(TARGET4).o: src/random_num_list.c
+obj/$(TARGET8).o: src/random_num_list.c
 	$(CC) -c   $< -o obj/random_num_list.o $(CPPFLAGS)
-$(TARGET4): obj/random_num_list.o
+$(TARGET8): obj/random_num_list.o
 	$(CC) -o random_num_list $< $(LDFLAGS)
-obj/$(TARGET5).o: src/readfile.c
+obj/$(TARGET9).o: src/readdynamic.c
+	$(CC) -c   $< -o obj/readdynamic.o $(CPPFLAGS)
+$(TARGET9): obj/readdynamic.o
+	$(CC) -o readdynamic $< $(LDFLAGS)
+obj/$(TARGET10).o: src/readfile.c
 	$(CC) -c   $< -o obj/readfile.o $(CPPFLAGS)
-$(TARGET5): obj/readfile.o
+$(TARGET10): obj/readfile.o
 	$(CC) -o readfile $< $(LDFLAGS)
-obj/$(TARGET6).o: src/readfilelines.c
+obj/$(TARGET11).o: src/readfilelines.c
 	$(CC) -c   $< -o obj/readfilelines.o $(CPPFLAGS)
-$(TARGET6): obj/readfilelines.o
+$(TARGET11): obj/readfilelines.o
 	$(CC) -o readfilelines $< $(LDFLAGS)
-obj/$(TARGET7).o: src/teststrigvec.c
+obj/$(TARGET12).o: src/teststrigvec.c
 	$(CC) -c   $< -o obj/teststrigvec.o $(CPPFLAGS)
-$(TARGET7): obj/teststrigvec.o
+$(TARGET12): obj/teststrigvec.o
 	$(CC) -o teststrigvec $< $(LDFLAGS)
-obj/$(TARGET8).o: src/testtable.c
+obj/$(TARGET13).o: src/testtable.c
 	$(CC) -c   $< -o obj/testtable.o $(CPPFLAGS)
-$(TARGET8): obj/testtable.o
+$(TARGET13): obj/testtable.o
 	$(CC) -o testtable $< $(LDFLAGS)
 install: all
 	mv $(TARGETS) bin
