@@ -19,7 +19,8 @@ TARGET12 = readfile
 TARGET13 = readfilelines
 TARGET14 = teststrigvec
 TARGET15 = testtable
-TARGETS = testtable teststrigvec readfilelines readfile readdynamic random_num_list parsefile main madlib literals dynamic1 crash1 countlines color averageof3 analysis
+TARGET16 = wc
+TARGETS = wc testtable teststrigvec readfilelines readfile readdynamic random_num_list parsefile main madlib literals dynamic1 crash1 countlines color averageof3 analysis
 all: $(TARGETS)
 obj/$(TARGET0).o: src/analysis.c
 	$(CC) -c   $< -o obj/analysis.o $(CPPFLAGS)
@@ -84,6 +85,10 @@ obj/$(TARGET15).o: src/testtable.c
 	$(CC) -c   $< -o obj/testtable.o $(CPPFLAGS)
 $(TARGET15): obj/testtable.o
 	$(CC) -o testtable $< $(LDFLAGS)
+obj/$(TARGET16).o: src/wc.c
+	$(CC) -c   $< -o obj/wc.o $(CPPFLAGS)
+$(TARGET16): obj/wc.o
+	$(CC) -o wc $< $(LDFLAGS)
 install: all
 	mv $(TARGETS) bin
 .PHONY: clean
