@@ -8,20 +8,22 @@
 #define RMAX 16      /* max allowed number of records (rows) in a file */
 #define RS '\n'     /* record (row) separator */
 #define FS ','     /* record (row) separator */
+FILE *ptr;  /* Pointer to the data file. FILE is a structure defined in <stdio.h> */
+FILE *mptr; /* Pointer to the metadata file. FILE is a structure defined in <stdio.h> */
+
 int c; /* Character read from the file. */
-FILE *ptr; /* Pointer to the file. FILE is a structure defined in <stdio.h> */
 int rowcount;  /* rowcount: lines counter */
 int cc;  /* cc: chars counter */
 int totlines; /* saves the total n. of lines read */
 int totchars; /* saves the total n. of chars read */
-char *field; /* file table array */
-int colcount;  /* fields  counter*/
+char *field;     /* file table array */
+int colcount;    /* fields  counter*/
 int fcharcount;  /* field char counter*/
 int ff=0; /* flag goes 1 when a row field is found*/
 char temp[FSIZE];
-char *buffer;
-size_t bufsize = LMAXSIZE;
+char *buffer; /* buffer containing the chars read from file*/
+size_t bufsize = LMAXSIZE; /* max. size of char buffer */
 size_t characters;
-float* data;
+float* data; /* array to contain the read data (2D matrix) */
 int nrows=RMAX;
 int ncols=FMAX;

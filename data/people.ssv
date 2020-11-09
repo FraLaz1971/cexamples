@@ -1,4 +1,9 @@
-NAME       AGE   CITY
-Areeba     12    hyderbad
-Alisha     18    delhi
-Umar       65    bangalore  
+#NAME AGE CITY
+Areeba 12 hyderbad
+Alisha 18 delhi
+#comment 1
+Umar 65 bangalore  
+Francesco 49 Latina
+#comment 2
+John 55 SanAntonio
+

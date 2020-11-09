@@ -1,15 +1,68 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "defines.h"
 
-extern float *data;
 
+extern float *data;
+char *mkeyword[64];  /* array  of metadata keywords */
+char *mvalue[64];    /* array  of metadata values   */
+int  nmeta;          /* number of metadata items */
+static char infile[64];
+static char metainfile[64];
+
+void parserow(char *mybuffer, int mncols);
+void showdata(float *mydata, int mnrows, int mncols);
+
+void open_metadata_file(const char *metafilen);
+void parse_metadata_file();
+void close_metadata_file();
+
+void open_data_file(const char *filen);
+void parse_data_file();
+void close_data_file();
+void allocate_buffer();
+void allocate_data();
+void deallocate_buffer();
+void deallocate_data();
+
+int main(int argc, char **argv)
+{
+    if (argc == 4){
+    nrows=atoi(argv[2]); ncols=(atoi(argv[3]));
+    	/* allocate a mybuffer of chars with length bufsize */
+    memcpy(infile, argv[1], strlen(argv[1]));
+ 
+    open_data_file(infile);
+
+    allocate_buffer();
+    
+    allocate_data();
+    
+    parse_data_file();
+    
+    showdata(data, nrows, ncols);
+
+    deallocate_buffer();
+    
+    deallocate_data();
+
+    return 0;
+        
+    } else {
+    printf("usage: %s infilename nrows ncolumns\n", argv[0]);
+	return 1;
+}
+
+
+}
 
 void parserow(char *mybuffer, int mncols){
+/* Read one character at a time, checking for the End of File. 
+ * EOF is defined in <stdio.h>  as -1 	*/
             cc=0; fcharcount=0;colcount=0;
-    		while( mybuffer[cc] != RS ){ /* while on line characters */
+            while( mybuffer[cc] != RS ){ /* while on line characters */
 			if ( (mybuffer[cc] != FS) ){
-				/* field[fcharcount][rowcount]=mybuffer[cc]; */
 					temp[fcharcount] = mybuffer[cc];
 					fcharcount++;
 				if ( (mybuffer[cc] != '\t') && (mybuffer[cc] != ' ' ) ){
@@ -42,55 +95,73 @@ void showdata(float *mydata, int mnrows, int mncols){
     puts("showdata() STOP");
 }
 
+void open_metadata_file(const char *metafilen){
+   /* Open the file */
+    mptr = fopen(metafilen,"r");
+    /* checking if file exists */
+    if (ptr==NULL) 
+        { 
+            fprintf(stderr, "no such metadata file: %s.\n", metafilen); 
+            exit(EXIT_FAILURE); 
+        }         
+}
 
-int main(int argc, char **argv)
-{
-    if (argc == 4){
-    nrows=atoi(argv[2]); ncols=(atoi(argv[3]));
-    int c;			/* Character read from the file.	*/
-    FILE *ptr;			/* Pointer to the file. FILE is a
-				   structure  defined in <stdio.h>	*/
-				/* Open the file - no error checking done */
-    ptr = fopen(argv[1],"r");
-				/* Read one character at a time, checking 
-				   for the End of File. EOF is defined
-				   in <stdio.h>  as -1 			*/
-    	/* allocate a mybuffer of chars with length bufsize */
+void parse_metadata_file(FILE *fp){
+    
+}
+
+void close_metadata_file(FILE *mfp){
+    fclose(mfp);			/* Close the metadata file.	*/    
+}
+
+void open_data_file(const char *filen){
+    /* Open the file */
+    ptr = fopen(filen,"r");
+    /* checking if file exists */
+    if (ptr==NULL) 
+        { 
+            fprintf(stderr, "no such file: %s.\n", filen); 
+            exit(EXIT_FAILURE); 
+        }     
+}
+
+void parse_data_file(){
+	rowcount=0; totlines=0; totchars=0;
+	while ((characters=getline(&buffer,&bufsize,ptr)) != EOF ) /* until you reach the end of the file */
+    {
+        parserow(buffer, ncols);	/* O/P the field values to the screen	*/
+        rowcount++;
+    }
+    
+}
+
+void close_data_file(FILE *fp){
+    fclose(fp);			/* Close the file.	*/
+}
+
+void allocate_buffer(){
 	buffer = (char *)malloc(bufsize * sizeof(char));
     if( buffer == NULL)
     {
         		perror("parsefile.c: Unable to allocate buffer");
         		exit(1);
     }
+}
 
-    
-   	/* allocate an array of float containing the data */
+void allocate_data(){
+   	/* allocate an array of float to contain the read data */
 	data = (float *)calloc(nrows*ncols, sizeof(float));
     if( buffer == NULL)
     {
         		perror("parsefile.c: Unable to allocate array");
         		exit(1);
     }
-
     
-	rowcount=0; totlines=0; totchars=0;
-	while ((characters=getline(&buffer,&bufsize,ptr)) != EOF ) /* until you reach the end of the file */
-    {
-        parserow(buffer, ncols);	/* O/P the characters to the screen	*/
-        rowcount++;
-    }
-
-    fclose(ptr);			/* Close the file.			*/
-    showdata(data, nrows, ncols);
-
-    return 0;
-
-        
-    } else {
-    printf("usage: %s infilename nrows ncolumns\n", argv[0]);
-	return 1;
 }
 
-
+void deallocate_buffer(){
+    free(buffer);
 }
-
+void deallocate_data(){
+    free(data);    
+}
