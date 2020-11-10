@@ -27,17 +27,19 @@ TARGET20 = random_num_list
 TARGET21 = readdynamic
 TARGET22 = readfile
 TARGET23 = readfilelines
-TARGET24 = scanfile
-TARGET25 = scanning2
-TARGET26 = scanning
-TARGET27 = showchars
-TARGET28 = simplecolor
-TARGET29 = structures
-TARGET30 = teststrigvec
-TARGET31 = testtable
-TARGET32 = wc
-TARGET33 = words2lines
-TARGETS = words2lines wc testtable teststrigvec structures simplecolor showchars scanning scanning2 scanfile readfilelines readfile readdynamic random_num_list parsefile main madlib literals largest insults forreal dynamic1 dumpfunc crash1 countlines color charstats charme callval callex averageof3 analysis 2darrayfun 2darray
+TARGET24 = scandir
+TARGET25 = scanfile
+TARGET26 = scanning2
+TARGET27 = scanning
+TARGET28 = showchars
+TARGET29 = simplecolor
+TARGET30 = structures
+TARGET31 = teststrigvec
+TARGET32 = testtable
+TARGET33 = ui
+TARGET34 = wc
+TARGET35 = words2lines
+TARGETS = words2lines wc ui testtable teststrigvec structures simplecolor showchars scanning scanning2 scanfile scandir readfilelines readfile readdynamic random_num_list parsefile main madlib literals largest insults forreal dynamic1 dumpfunc crash1 countlines color charstats charme callval callex averageof3 analysis 2darrayfun 2darray
 all: $(TARGETS)
 obj/$(TARGET0).o: src/2darray.c
 	$(CC) -c   $< -o obj/2darray.o $(CPPFLAGS)
@@ -134,45 +136,53 @@ obj/$(TARGET23).o: src/readfilelines.c
 	$(CC) -c   $< -o obj/readfilelines.o $(CPPFLAGS)
 $(TARGET23): obj/readfilelines.o
 	$(CC) -o readfilelines $< $(LDFLAGS)
-obj/$(TARGET24).o: src/scanfile.c
+obj/$(TARGET24).o: src/scandir.c
+	$(CC) -c   $< -o obj/scandir.o $(CPPFLAGS)
+$(TARGET24): obj/scandir.o
+	$(CC) -o scandir $< $(LDFLAGS)
+obj/$(TARGET25).o: src/scanfile.c
 	$(CC) -c   $< -o obj/scanfile.o $(CPPFLAGS)
-$(TARGET24): obj/scanfile.o
+$(TARGET25): obj/scanfile.o
 	$(CC) -o scanfile $< $(LDFLAGS)
-obj/$(TARGET25).o: src/scanning2.c
+obj/$(TARGET26).o: src/scanning2.c
 	$(CC) -c   $< -o obj/scanning2.o $(CPPFLAGS)
-$(TARGET25): obj/scanning2.o
+$(TARGET26): obj/scanning2.o
 	$(CC) -o scanning2 $< $(LDFLAGS)
-obj/$(TARGET26).o: src/scanning.c
+obj/$(TARGET27).o: src/scanning.c
 	$(CC) -c   $< -o obj/scanning.o $(CPPFLAGS)
-$(TARGET26): obj/scanning.o
+$(TARGET27): obj/scanning.o
 	$(CC) -o scanning $< $(LDFLAGS)
-obj/$(TARGET27).o: src/showchars.c
+obj/$(TARGET28).o: src/showchars.c
 	$(CC) -c   $< -o obj/showchars.o $(CPPFLAGS)
-$(TARGET27): obj/showchars.o
+$(TARGET28): obj/showchars.o
 	$(CC) -o showchars $< $(LDFLAGS)
-obj/$(TARGET28).o: src/simplecolor.c
+obj/$(TARGET29).o: src/simplecolor.c
 	$(CC) -c   $< -o obj/simplecolor.o $(CPPFLAGS)
-$(TARGET28): obj/simplecolor.o
+$(TARGET29): obj/simplecolor.o
 	$(CC) -o simplecolor $< $(LDFLAGS)
-obj/$(TARGET29).o: src/structures.c
+obj/$(TARGET30).o: src/structures.c
 	$(CC) -c   $< -o obj/structures.o $(CPPFLAGS)
-$(TARGET29): obj/structures.o
+$(TARGET30): obj/structures.o
 	$(CC) -o structures $< $(LDFLAGS)
-obj/$(TARGET30).o: src/teststrigvec.c
+obj/$(TARGET31).o: src/teststrigvec.c
 	$(CC) -c   $< -o obj/teststrigvec.o $(CPPFLAGS)
-$(TARGET30): obj/teststrigvec.o
+$(TARGET31): obj/teststrigvec.o
 	$(CC) -o teststrigvec $< $(LDFLAGS)
-obj/$(TARGET31).o: src/testtable.c
+obj/$(TARGET32).o: src/testtable.c
 	$(CC) -c   $< -o obj/testtable.o $(CPPFLAGS)
-$(TARGET31): obj/testtable.o
+$(TARGET32): obj/testtable.o
 	$(CC) -o testtable $< $(LDFLAGS)
-obj/$(TARGET32).o: src/wc.c
+obj/$(TARGET33).o: src/ui.c
+	$(CC) -c   $< -o obj/ui.o $(CPPFLAGS)
+$(TARGET33): obj/ui.o
+	$(CC) -o ui $< $(LDFLAGS)
+obj/$(TARGET34).o: src/wc.c
 	$(CC) -c   $< -o obj/wc.o $(CPPFLAGS)
-$(TARGET32): obj/wc.o
+$(TARGET34): obj/wc.o
 	$(CC) -o wc $< $(LDFLAGS)
-obj/$(TARGET33).o: src/words2lines.c
+obj/$(TARGET35).o: src/words2lines.c
 	$(CC) -c   $< -o obj/words2lines.o $(CPPFLAGS)
-$(TARGET33): obj/words2lines.o
+$(TARGET35): obj/words2lines.o
 	$(CC) -o words2lines $< $(LDFLAGS)
 install: all
 	mv $(TARGETS) bin
