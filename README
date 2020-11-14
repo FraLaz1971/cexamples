@@ -37,4 +37,33 @@ cat log/err.log
 you entered 1 elements 
 
 you entered 2 elements 
+# input numbers from keyboard 
+./methus2
+# and from file
+./methus2 < data/methus2.txt
+/methus2 
+####
+./methus-stdin <data/methus-average.txt
+./methus-stdin <data/methus-badluck.txt
+# ... and so on
+#### execution attempts
+How old was Methuselah?old
+Methuselah was 0 years old.
+francesco@squirrel:~/projects/c_cpp/cexamples$ ./methus2 
+How old was Methuselah?4.5
+Methuselah was 4 years old.
+francesco@squirrel:~/projects/c_cpp/cexamples$ ./methus2 
+How old was Methuselah?1000000000000000
+Methuselah was -1530494976 years old.
+*** stack smashing detected ***: <unknown> terminated
+Aborted (core dumped)
+#####
+./pension <data/default-pension.txt
+# copy the input file to another and change input data
+cp data/default-pension.txt data/my-pension.txt
+nano data/my-pension.txt
+#edit the input data and save
+./pension <data/my-pension.txt
+### also you can run interactively
+./pension
 
