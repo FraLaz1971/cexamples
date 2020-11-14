@@ -12,7 +12,7 @@
 #define NULL '\0'
 #include <dirent.h>			/* Directory information.	*/
 
-main()
+int main(int argc, char **argv)
 {
     DIR           *dir_p;
     struct dirent *dir_entry_p;
@@ -26,7 +26,6 @@ main()
 
         printf(" %s \n", dir_entry_p->d_name);
     }
-
 				/* Tidy up.				*/
     closedir(dir_p);
 }

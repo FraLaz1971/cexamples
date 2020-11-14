@@ -22,4 +22,19 @@ ls -alhrt *
 #or inside bin after make install
 #look also at
 #src/README
+./insult2 < data/input.txt
+cat data/input.txt
+amura
+./insult3 < data/input.txt
+cat data/input.txt
+amura
+./kitty3 < data/input2.txt 2> log/err.log
+cat data/input2.txt
+karin
+to beat you
+cat log/err.log
+
+you entered 1 elements 
+
+you entered 2 elements 
 
