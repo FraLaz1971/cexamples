@@ -20,14 +20,16 @@ double km_to_miles(double kv); /* given km it returns miles */
 void show_conversions();       /* shows used conversion factors */
 
 int main() {
-	float jlydistance; /* avg. distance of Jupiter from the sun in light years */
-	float jaudistance; /* avg. distance of Jupiter from the sun in Astronomical Units */
+	double jlydistance; /* avg. distance of Jupiter from the sun in light years */
+	double jaudistance; /* avg. distance of Jupiter from the sun in Astronomical Units */
 	jlydistance = mjupiterdist/mlightyear; /* compute Jupiter distance in LY */
 	jaudistance = jupiterdist/MAU; /* compute Jupiter distance in AU */
 	show_conversions();
 	printf("Jupiter is %.0f miles from the sun.\n",mjupiterdist);
 	printf("Jupiter is %.0f km from the sun.\n",jupiterdist/1000.0);
 	printf("Jupiter is %f light years from the sun.\n",jlydistance);
+	printf("Jupiter is %e light years from the sun.\n",jlydistance);
+	printf("Jupiter is %E light years from the sun.\n",jlydistance);
 	printf("Jupiter is %f AU from the sun.\n",jaudistance);
 	printf("1 light year is %E miles\n",mlightyear);
 	printf("1 light year is %E km\n",miles_to_km(mlightyear));
