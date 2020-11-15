@@ -66,4 +66,28 @@ nano data/my-pension.txt
 ./pension <data/my-pension.txt
 ### also you can run interactively
 ./pension
+### jupiter.c ---> do some astronomy and distance units computation and conversions
+# usage
+./jupiter
+# to see only output expressed in AU
+./jupiter | grep AU
+#    //     //                 in miles
+./jupiter | grep mile
+#    //     //                 in km
+./jupiter | grep km
+# type a char and get it in output on the screen
+./favkey1
+# read a char from a file and get it in output on the screen
+./favkey1 < data/mychar.txt
+# read a char from a file and save it in output to a file named data/savedchar.txt
+./favkey1  > data/savedchar.txt
+# to compile meals2.c with make utility
+make src/meals2
+# compiling with DEBUG directive to have some debug printing
+rm src/meals2 src/meals2.o
+gcc -DDEBUG -g -O2 -c   src/meals2.c -o obj/meals2.o -Iinclude
+gcc -g -O2 -o meals2 obj/meals2.o -Llib -lm
+# to recompile without DEBUG printing
+rm -i meals2 src/meals2.o
+make src/meals2
 
