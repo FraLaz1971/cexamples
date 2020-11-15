@@ -7,8 +7,10 @@
 #define JY 365.25 /* one Julian Year is 365 days and 6 hours */
 #define MLY 9.4607E15
 /* global constant variables */
-const double mjupiterdist = 483400000; /* distance of Jupiter from the sun in miles */
+const double mjupiterdist = 483400000.0; /* avg. distance of Jupiter from the sun in miles */
+const double jupiterdist = 778.57E9; /* avg. distance of Jupiter from the sun in m (SI) */
 const double mlightyear = 5.878E12;    /* light year distance in miles */
+
 /* global variables */
 int a;
 
@@ -23,8 +25,8 @@ int main() {
 	jlydistance = mjupiterdist/mlightyear; /* compute Jupiter distance in LY */
 	jaudistance = 1000*miles_to_km(mjupiterdist)/MAU; /* compute Jupiter distance in AU */
 	show_conversions();
-	printf("Jupiter is %f miles from the sun.\n",mjupiterdist);
-	printf("Jupiter is %f km from the sun.\n",miles_to_km(mjupiterdist));
+	printf("Jupiter is %.0f miles from the sun.\n",mjupiterdist);
+	printf("Jupiter is %.0f km from the sun.\n",jupiterdist/1000.0);
 	printf("Jupiter is %f light years from the sun.\n",jlydistance);
 	printf("Jupiter is %f AU from the sun.\n",jaudistance);
 	printf("1 light year is %E miles\n",mlightyear);
