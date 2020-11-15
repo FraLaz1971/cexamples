@@ -5,7 +5,7 @@
 #define MLINKM 1.609344 /* one mile is ~1.6 km */
 #define MAU 149597870700.0 /* Astronomical Unit constant in meters */
 #define JY 365.25 /* one Julian Year is 365 days and 6 hours */
-#define MLY 9.4607E15
+#define MLY 9.4607E15 /* light year in meters (SI) */
 /* global constant variables */
 const double mjupiterdist = 483400000.0; /* avg. distance of Jupiter from the sun in miles */
 const double jupiterdist = 778.57E9; /* avg. distance of Jupiter from the sun in m (SI) */
@@ -23,7 +23,7 @@ int main() {
 	float jlydistance; /* avg. distance of Jupiter from the sun in light years */
 	float jaudistance; /* avg. distance of Jupiter from the sun in Astronomical Units */
 	jlydistance = mjupiterdist/mlightyear; /* compute Jupiter distance in LY */
-	jaudistance = 1000*miles_to_km(mjupiterdist)/MAU; /* compute Jupiter distance in AU */
+	jaudistance = jupiterdist/MAU; /* compute Jupiter distance in AU */
 	show_conversions();
 	printf("Jupiter is %.0f miles from the sun.\n",mjupiterdist);
 	printf("Jupiter is %.0f km from the sun.\n",jupiterdist/1000.0);
