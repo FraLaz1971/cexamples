@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 
 #define MLINKM 1.609344 /* one mile is ~1.6 km */
 #define MAU 149597870700.0 /* Astronomical Unit constant in meters */
