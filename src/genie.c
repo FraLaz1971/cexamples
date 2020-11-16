@@ -9,7 +9,7 @@ int main()
 	do {
 		printf("%s Enter a number from 0 to 9:", add);
 		c = scanf("%i", &number);
-		fprintf(stdout, "number is %i\n", number);
+		fprintf(stderr, "number is %i\n", number);
 		memcpy(add, "I told you:", 13);
 	} while ( (number>9) || (number<0) );
 	if(number<5)
