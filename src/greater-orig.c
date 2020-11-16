@@ -8,15 +8,12 @@ int main()
 {
     char a,b, f;a='\0'; b='\0';
     printf("Which character is greater?\n");
-    printf("If you are on GNU/Linux or Apple MacOS or MS win msys2/cygwin \n"); 
-    printf("type CTRL-D after the character you typed to enter it\n\n");
-    printf("If you are on Microsoft Windows cmd or you click on the exe icon in explorer\n"); 
-    printf("type CTRL-Z and then ENTER key\n"); 
-    printf("after the character you typed to enter it\n");
-    printf("\nType a single character:");
+    printf("\nType a single character (and then ENTER):");
     a=getchar(); 
-    printf("\nType another character:");
+    __fpurge(stdin);
+    printf("\nType another character (and then ENTER):");
     b=getchar();
+    __fpurge(stdin);
     if(a > b)    {
         printf("\n'%c' is greater than '%c'!\n",a,b);
     }    else if (b > a)    {
