@@ -11,12 +11,12 @@ int main()
     c=getchar();
     if( (c=='Y') || (c=='y'))
     {
-    printf("OK: Configuring computer to explode now.\n");
-    printf("Bye!\n");
+        printf("OK: Configuring computer to explode now.\n");
+        printf("Bye!\n");
     }
     else
     {
-    printf("Okay. Nothing will explode. Whew!\n");
+        printf("Okay. Nothing will explode. Whew!\n");
     }
     PAUSE();
     return(0);
