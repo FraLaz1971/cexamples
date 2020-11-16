@@ -18,13 +18,15 @@ int main (int argc, char *argv[])
      char es[MDIM] = "";
      char buff[MDIM] = "";
      int ch, i;
-     unsigned int a1d[MDIM];  /* 
+     unsigned int a1d[MDIM];
+     char *outfilename;
      /* print on stderr all positional parameters*/
      for (i=0; i<argc; i++){
        fprintf(stderr,"%s: argv %d = %s \n", argv[0] , i, argv[i]);
      }
      strcpy(es, argv[0]);
      /* open input file for reading */
+     
      char *infilename = (char *) argv[1];
      strcat(es, ": Can't open file "); strcat(es, infilename); strcat(es, " for reading\n");
      ifptr = fopen(infilename,"r");
@@ -42,7 +44,7 @@ int main (int argc, char *argv[])
      fprintf(stderr, "%s: file %s correctly open for reading\n", argv[0], infilename );
      
      /* open output file for writing */
-     char *outfilename = (char *) argv[2];
+     strcpy(outfilename, argv[2]);
      strcat(es, ": Can't open file "); strcat(es, outfilename); strcat(es, " for writing \n");
      ofptr = fopen(outfilename,"w");
      if ( ofptr == NULL  )  /* if can't open outfile receive an herror on opening file */
