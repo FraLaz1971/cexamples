@@ -40,4 +40,5 @@ done
 	echo 'distclean: clean'
         echo -e "\trm -f bin/* Makefile"
 echo "generating dirs" >/dev/stderr
-mkdir  bin obj
+if ! test -d bin; then mkdir  bin; fi
+if ! test -d obj; then mkdir obj; fi

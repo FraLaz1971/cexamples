@@ -2,7 +2,9 @@
 ./configure.sh > Makefile
 echo "generated Makefile"
 ls -lhrt Makefile
-echo "you can now run:"
+echo "if you are on GNU Linux os Apple MacOS you can now run:"
 echo "make"
+echo "if you are on Microsoft Windows you can now run:"
+echo "mingw32-make"
 echo "to see all generate files type:"
-echo "lsa"
+echo "ls -alhrt"
