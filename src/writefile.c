@@ -38,11 +38,11 @@ int main(int argc, char **argv)
     for(;;)
     {
         ch=getchar();
-        fprintf(ofptr, "%c", ch);
         if(ch==EOF)
         {
             break;
-        }
+        } else
+            fprintf(ofptr, "%c", ch);
     }
     printf("\nThanks!\n");
     return(0);
