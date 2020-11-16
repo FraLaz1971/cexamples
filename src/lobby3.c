@@ -10,6 +10,7 @@ int main()
     printf("2 - Candy.\n");
     printf("3 - Hot dog.\n");
     printf("4 - Popcorn.\n");
+    printf("$ - Show Price.\n");
     printf("= - Done.\n");
     printf("Your choices:\n");
     /* Figure out what they typed in. */
@@ -45,6 +46,20 @@ int main()
                 printf("Please pay the cashier.\n");
                 sel=1;
                 done=1;
+                break;
+            case '$':
+                printf("Beverage-->$8.00\n");
+                printf("Candy----->$5.50\n");
+                printf("Hot dog-->$10.00\n");
+                printf("Popcorn--->$7.50\n");
+                printf("1 - Beverage.\n");
+                printf("2 - Candy.\n");
+                printf("3 - Hot dog.\n");
+                printf("4 - Popcorn.\n");
+                printf("$ - Show Price.\n");
+                printf("= - Done.\n");
+                printf("Your choices:\n");
+                sel=1;
                 break;
             default:
                 if (sel=0)
