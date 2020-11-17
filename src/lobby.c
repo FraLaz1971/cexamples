@@ -1,9 +1,10 @@
 /* Theater lobby snack bar program */
 #include <stdio.h>
+#include <string.h>
 
 /* global variables */
 char c;
-int done, sel;
+int done, sel, msg[32];
 
 /* global functiones */
 void fpurge_stdin();
@@ -64,7 +65,8 @@ int main()
                 break;
             default:
 		    fflush(stdin);
-                    printf("Improper selection.\n");
+		    memcpy(msg, "Improper selection.\n");
+		   printf();
         } /* end switch */
     } /* end while */
     PAUSE();
