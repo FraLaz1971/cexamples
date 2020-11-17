@@ -25,7 +25,6 @@ int main()
     done=0;
     while(!done)
     {
-        fpurge_stdin();
         c = getchar();
         switch(c)
         {
@@ -64,6 +63,7 @@ int main()
                 printf("Your choices:\n");
                 break;
             default:
+		    fflush(stdin);
                     printf("Improper selection.\n");
         } /* end switch */
     } /* end while */
