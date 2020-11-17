@@ -4,7 +4,8 @@
 
 /* global variables */
 char c;
-int done, sel, msg[32];
+int done, sel;
+char  msg[32];
 
 /* global functiones */
 void fpurge_stdin();
@@ -23,32 +24,34 @@ int main()
     printf("= - Done.\n");
     printf("Your choices:\n");
     /* Figure out what they typed in. */
-    done=0;
+    done=0; 
+    strcpy(msg, "");
     while(!done)
     {
+/*	fpurge_stdin(); */
         c = getchar();
         switch(c)
         {
             case '1':
                 printf("Beverage\t$8.00\n");
-                total+=8;
+                total+=8; sel++;
                 break;
             case '2':
                 printf("Candy\t\t$5.50\n");
-                total+=5.5;
+                total+=5.5; sel++;
                 break;
             case '3':
                 printf("Hot dog\t\t$10.00\n");
-                total+=10;
+                total+=10; sel++;
                 break;
             case '4':
                 printf("Popcorn\t\t$7.50\n");
-                total+=7.5;
+                total+=7.5; sel++;
                 break;
             case '=':
                 printf("= Total of $%.2f\n",total);
                 printf("Please pay the cashier.\n");
-                done=1;
+                done=1; sel++;
                 break;
             case '$':
                 printf("Beverage-->$8.00\n");
@@ -62,11 +65,14 @@ int main()
                 printf("$ - Show Price.\n");
                 printf("= - Done.\n");
                 printf("Your choices:\n");
+		sel++;
                 break;
             default:
-		    fflush(stdin);
-		    memcpy(msg, "Improper selection.\n");
-		   printf();
+		    if (sel==0){
+		            printf("%s", msg);
+			    strcpy(msg, "Improper Selection\n");
+	 	    }
+		    sel=0;
         } /* end switch */
     } /* end while */
     PAUSE();
