@@ -1,5 +1,13 @@
  /*  using 'fclose' function */
 #define MDIM 255  /* fixed max dimension of buffers & arrays */
+FILE *ifptr;  /* define a pointer to input file */
+FILE *ofptr;  /* define a pointer to output file */
+char *str = "Test string \n";
+char es[MDIM] = "";
+char buff[MDIM] = "";
+int ch, i;
+unsigned int a1d[MDIM];
+char *outfilename;
 #include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -12,14 +20,6 @@ int main (int argc, char *argv[])
        exit(0);
      }
      
-     FILE *ifptr;  /* define a pointer to input file */
-     FILE *ofptr;  /* define a pointer to output file */
-     char *str = "Test string \n";
-     char es[MDIM] = "";
-     char buff[MDIM] = "";
-     int ch, i;
-     unsigned int a1d[MDIM];
-     char *outfilename;
      /* print on stderr all positional parameters*/
      for (i=0; i<argc; i++){
        fprintf(stderr,"%s: argv %d = %s \n", argv[0] , i, argv[i]);
