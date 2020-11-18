@@ -24,22 +24,27 @@ int main(int argc, char **argv)
    int stdn_fn = 0;
    long int ret;
       /* If stdin is the terminal, fileno(stdin) is always 0. */
-#ifdef __GNUC__
-   if (isatty(stdn_fn))
-#endif
+    #ifdef __GNUC__
+    if (isatty(stdn_fn))
+    #endif
       /* Tell user to enter data points; maximum = 39. */
  	  fprintf(stderr, "%s: Enter positive data points (-1 to indicate end of list).\n", argv[0]);  /*this print only in interactive*/
    for(;;){ /* infinite loop, flow interrupted only by break;*/
         skip=0;
+        #ifdef DEBUG
         fprintf(stderr, "%s: processing attempt point[%li] START \n", argv[0], count);
+        #endif
          /* Read number; check for end of file. */
         /* read before as a string */
         ret = scanf("%s", temp);
         /* convert into integer if it is a correct string */
+        #ifdef DEBUG
         fprintf(stderr, "%s: length of the scanned string is %li\n", argv[0], strlen(temp));
-
+        #endif
         if ( isanumber(temp) ){ /* if the string is a number */
+            #ifdef DEBUG
             fprintf(stderr, "%s: %s can be accepted as number \n", argv[0], temp);
+            #endif
             point[index] = atoi(temp);
         } else { /* reject otherwise */
             fprintf(stderr, "%s: warning, %s cannot be accepted as a number \n", argv[0], temp);
@@ -47,16 +52,22 @@ int main(int argc, char **argv)
             skip=1;
         }
 
+        #ifdef DEBUG
         fprintf(stderr, "pv=%s;av=%li ", temp, point[index]);
+        #endif
         if (ret <= 0){
+            #ifdef DEBUG
             fprintf(stderr, "%s: warning, scanf returned %li\n", argv[0], ret);
             fprintf(stderr, "%s: input warning, maybe you didn't enter '-1'?\n", argv[0]);
+            #endif
             w++;
             break;
         }
 
         if (point[index] == -1){
+            #ifdef DEBUG
             fprintf(stderr, "\n%s: detected end of dataset\n", argv[0]);
+            #endif
             break;
         }  
         
@@ -65,17 +76,23 @@ int main(int argc, char **argv)
             sum += point[index];
             ++index;
         } else if(skip==1){
+            #ifdef DEBUG
             fprintf(stderr, "%s: warning, skipping negative point value %li\n", argv[0], point [index]);
+            #endif
             w++;
         }
+        #ifdef DEBUG
         fprintf(stderr, "\n%s: processing point[%li] STOP \n", argv[0], count);
+        #endif
         count++; /* increment the acquisitions counter*/
    }
    nopoints = index; /* save the actual n. of entered points */
    if (nopoints > 0)
         avg = sum / nopoints;
    else {
+        #ifdef DEBUG
         fprintf(stderr, "\n%s: warning, attempt to divide by 0 \n", argv[0]);
+        #endif
         avg = 0;
         w++;
    }

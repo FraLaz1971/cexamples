@@ -1,5 +1,9 @@
  /*  using 'fclose' function */
 #define MDIM 255  /* fixed max dimension of buffers & arrays */
+#include <errno.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 FILE *ifptr;  /* define a pointer to input file */
 FILE *ofptr;  /* define a pointer to output file */
 char *str = "Test string \n";
@@ -8,10 +12,6 @@ char buff[MDIM] = "";
 int ch, i;
 unsigned int a1d[MDIM];
 char *outfilename;
-#include <errno.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 int main (int argc, char *argv[])
 {
      /* argc = n of input pars, argv[0] = executable name, argv[1] - argv[n-1] cmdline pars */
