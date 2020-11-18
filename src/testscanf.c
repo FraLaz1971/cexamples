@@ -42,14 +42,14 @@ int main(int argc, char **argv)
             fprintf(stderr, "%s: %s can be accepted as number \n", argv[0], temp);
             point[index] = atoi(temp);
         } else { /* reject otherwise */
-            fprintf(stderr, "%s: %s cannot be accepted as a number \n", argv[0], temp);
+            fprintf(stderr, "%s: warning, %s cannot be accepted as a number \n", argv[0], temp);
             point[index] = -2;
             skip=1;
         }
 
         fprintf(stderr, "pv=%s;av=%li ", temp, point[index]);
         if (ret <= 0){
-            fprintf(stderr, "%s: scanf returned %li\n", argv[0], ret);
+            fprintf(stderr, "%s: warning, scanf returned %li\n", argv[0], ret);
             fprintf(stderr, "%s: input warning, maybe you didn't enter '-1'?\n", argv[0]);
             w++;
             break;
@@ -65,14 +65,21 @@ int main(int argc, char **argv)
             sum += point[index];
             ++index;
         } else if(skip==1){
-            fprintf(stderr, "%s: skipping negative point value %li\n", argv[0], point [index]);
+            fprintf(stderr, "%s: warning, skipping negative point value %li\n", argv[0], point [index]);
             w++;
         }
         fprintf(stderr, "\n%s: processing point[%li] STOP \n", argv[0], count);
         count++; /* increment the acquisitions counter*/
    }
    nopoints = index; /* save the actual n. of entered points */
-   avg = sum / nopoints;
+   if (nopoints > 0)
+        avg = sum / nopoints;
+   else {
+        fprintf(stderr, "\n%s: warning, attempt to divide by 0 \n", argv[0]);
+        avg = 0;
+        w++;
+   }
+
    fprintf(stderr, "%s: you got %d warnings\n", argv[0], w);
    fprintf(stderr, "%s: valid points read: %d \n",argv[0] , nopoints);
    fprintf(stderr, "%s: sum: %f \n",argv[0], sum);
