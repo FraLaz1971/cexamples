@@ -1,6 +1,6 @@
 /* scanf use and simple computation example 
- * need 5 input values on stdin
- * death-age job-start-age job-stop-age monthly-salary contribution-rate
+ * need 6 input values on stdin
+ * citizen-name death-age job-start-age job-stop-age monthly-salary contribution-rate
  */
 #include <stdio.h>
 #include <stdlib.h>
