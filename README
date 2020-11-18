@@ -66,6 +66,8 @@ nano data/my-pension.txt
 ./pension <data/my-pension.txt
 ### also you can run interactively
 ./pension
+### or put stdin in the commandline
+./pension <<< "Rosmunda 75 25 64 3000 20"
 ### jupiter.c ---> do some astronomy and distance units computation and conversions
 # usage
 ./jupiter
