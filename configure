@@ -1,10 +1,45 @@
 #!/usr/bin/env bash
-./configure.sh > Makefile
+chmod +x config/*.sh
+if   [[ "$OS" == "Windows_NT" ]]
+then
+        echo "detected Microsoft $OS $(uname)"
+        . config/configure-win-mingw.sh > Makefile.mingw
+	cp Makefile.mingw Makefile
+	arch=$(uname -m)
+        if [[ $arch == i686 ]]
+        then
+                echo 'ex. config/configure-win-i686-mingw.sh > Makefile.mingw32'
+                . config/configure-win-i686-mingw.sh > Makefile.mingw32
+		cp Makefile.mingw32 Makefile
+        elif [[ $arch == x86_64 ]]
+        then
+                echo 'ex. config/configure-win-mingw.sh > Makefile.mingw64'
+                . config/configure-win-mingw.sh > Makefile.mingw64
+#		cp Makefile.mingw64 Makefile
+        else
+                echo "unhandled arch"
+        fi
+elif [[ $(uname) == "Linux" ]]
+then
+        echo "detected GNU/linux $OS"
+        uname -a
+        lsb_release -a
+        . configure.sh > Makefile.lnx
+	cp Makefile.lnx Makefile
+elif [[ $(uname) == "Darwin" ]]
+then
+        echo "detected Apple $OS $(uname)"
+        . configure-mac.sh > Makefile.mac
+else
+        echo "unknow OS"
+fi
 echo "generated Makefile"
-ls -lhrt Makefile
-echo "if you are on GNU Linux os Apple MacOS you can now run:"
+ls -lhrt Makefile*
+echo "project cnumerics configured"
+echo "if you are on GNU/Linux or Apple MacOS, you can now run:"
 echo "make"
-echo "if you are on Microsoft Windows you can now run:"
+echo "if you are on Microsoft Windows, you can now run:"
 echo "mingw32-make"
 echo "to see all generate files type:"
 echo "ls -alhrt"
+date
