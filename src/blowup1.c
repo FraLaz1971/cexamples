@@ -24,7 +24,7 @@ int main()
 }
 
 void PAUSE(){
-        __fpurge(stdin);
+        fflush(stdin);
         puts("please, type a key and then enter\n");
         ret = scanf("%s", temp);
 }

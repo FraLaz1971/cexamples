@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 char t[10]; int r, start; char ch;
 void PAUSE();
 
@@ -6,7 +7,7 @@ int main()
 {
     int count, i;
     for(count=10;count>0;count=count-1)
-    printf("%d\n",count);
+    	printf("%d\n",count);
     printf("Ready or not, here I come!\n");
     PAUSE();
     for(i=2;i<10;i=i+2)
@@ -23,9 +24,9 @@ int main()
     i++;
     }
     PAUSE();
-    while(ch!='~')
+    while(ch!='k')
     {
-        printf("%s please, type a '~' and then enter\n", t);
+        printf("%s please, type a 'k' and then enter\n", t);
         ch=getchar();
         memcpy(t,"I told you:", 10);
     }
@@ -48,7 +49,7 @@ int main()
 }
 /* functions implementation */
 void PAUSE(){
-        #ifdef __GNUC__
+        #ifdef DEBUG
             __fpurge(stdin);
         /*fprintf(stderr, "debug: compiled with GNU C, added __fpurge(stdin);\n"); */
         #endif

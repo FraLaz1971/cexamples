@@ -23,7 +23,7 @@ int main()
 }
 
 void PAUSE(){
-        #ifdef __GNUC__
+        #ifdef DEBUG
             __fpurge(stdin);
             fprintf(stderr, "debug: compiled with GNU C, added __fpurge(stdin)\n");
         #endif

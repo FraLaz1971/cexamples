@@ -10,10 +10,13 @@
  *
  ************************************************************************/
 #define NULL '\0'
+#ifdef DEBUG
 #include <dirent.h>			/* Directory information.	*/
+#endif
 
 int main(int argc, char **argv)
 {
+#ifdef DEBUG
     DIR           *dir_p;
     struct dirent *dir_entry_p;
 				/* Open the current directory		*/	
@@ -28,5 +31,6 @@ int main(int argc, char **argv)
     }
 				/* Tidy up.				*/
     closedir(dir_p);
+#endif
 }
 

@@ -1,7 +1,7 @@
 #/usr/bin/env bash
 echo "generating total makefile ..." >/dev/stderr
 a=0;t=0;TARGETS=
-echo 'CC=gcc -g -O2'
+echo 'CC=i686-w64-mingw32-gcc -g -O2'
 echo 'SRC = $(wildcard src/*.c)'
 echo "OBJ = obj/*.o obj/*.obj"
 echo 'CPPFLAGS = -Iinclude'

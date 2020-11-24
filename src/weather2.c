@@ -104,12 +104,8 @@ int main(int argc, char **argv){
 
 /* functions implementation */
 void PAUSE(){
-        #ifdef __GNUC__
-            __fpurge(stdin);
-        /*    fprintf(stderr, "debug: compiled with GNU C, added __fpurge(stdin);\n"); */
-        #endif
         puts("please, type a key and then enter\n");
-        ret = scanf("%s", temp);
+        condw = getchar();
 }
 
 /* Fahrhenheit to/from celsius degrees conversions 

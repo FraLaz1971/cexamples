@@ -10,10 +10,10 @@ int main()
     printf("Which character is greater?\n");
     printf("\nType a single character (and then ENTER):");
     a=getchar(); 
-    __fpurge(stdin);
+    fflush(stdin);
     printf("\nType another character (and then ENTER):");
     b=getchar();
-    __fpurge(stdin);
+    fflush(stdin);
     if(a > b)    {
         printf("\n'%c' is greater than '%c'!\n",a,b);
     }    else if (b > a)    {

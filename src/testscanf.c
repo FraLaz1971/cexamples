@@ -107,7 +107,7 @@ int main(int argc, char **argv)
 }
 
 void fpurge_stdin(){
-#ifdef __GNUC__
+#ifdef __DEBUG__
     __fpurge(stdin);
 #else
 	fflush(stdin);

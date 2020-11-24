@@ -73,7 +73,7 @@ int main()
 }
 
 void fpurge_stdin(){
-#ifdef __GNUC__
+#ifdef DEBUG
     __fpurge(stdin);
 #else
 	fflush(stdin);

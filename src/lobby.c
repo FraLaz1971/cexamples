@@ -81,7 +81,7 @@ int main()
 }
 
 void fpurge_stdin(){
-#ifdef __GNUC__
+#ifdef DEBYG
     __fpurge(stdin);
 #else
 	fflush(stdin);
