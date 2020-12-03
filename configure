@@ -15,7 +15,7 @@ then
         then
                 echo 'ex. config/configure-win-mingw.sh > Makefile.mingw64'
                 . config/configure-win-mingw.sh > Makefile.mingw64
-#		cp Makefile.mingw64 Makefile
+		cp Makefile.mingw64 Makefile
         else
                 echo "unhandled arch"
         fi
@@ -24,12 +24,12 @@ then
         echo "detected GNU/linux $OS"
         uname -a
         lsb_release -a
-        . configure.sh > Makefile.lnx
+        . config/configure.sh > Makefile.lnx
 	cp Makefile.lnx Makefile
 elif [[ $(uname) == "Darwin" ]]
 then
         echo "detected Apple $OS $(uname)"
-        . configure-mac.sh > Makefile.mac
+        . config/configure-mac.sh > Makefile.mac
 else
         echo "unknow OS"
 fi
