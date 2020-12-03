@@ -32,7 +32,7 @@ do
 	a=$(($a+1)) 
 done
 	echo 'TARGETS' = $TARGETS
-	echo 'RMTARGETS' = $RMTARGETS analysis.o
+	echo 'RMTARGETS' = $RMTARGETS
 	echo 'CPTARGETS' = $CPTARGETS
 	echo 'all: $(RMTARGETS)'
 a=0
@@ -46,14 +46,14 @@ do
 	else
 		if [[ $TARGET == "useanalysis" ]]
 		then
-			echo 'analysis$(EEXT): useanalysis.exe'
+			echo 'analysis$(EEXT): useanalysis$(EEXT)'
 			echo -e "\t"'$(CP) useanalysis$(EEXT) analysis$(EEXT)'
 			echo 'analysis$(OEXT): src/analysis.c'
 			echo -e "\t"'$(CC) $(CPPFLAGS) src/analysis.c  /c  '
 			echo '$(TARGET'$a')$(OEXT): src/useanalysis.c'
 			echo -e "\t"'$(CC) $(CPPFLAGS) src/$(TARGET'$a').c  /c  '
 			echo '$(TARGET'$a')$(EEXT): analysis$(OEXT) $(TARGET'$a')$(OEXT)'
-			echo -e "\t"'$(LD) $(TARGET'$a')$(OEXT) analysis.obj  /out:'$TARGET'$(EEXT) $(LDFLAGS)'
+			echo -e "\t"'$(LD) $(TARGET'$a')$(OEXT) analysis$(OEXT)  /out:'$TARGET'$(EEXT) $(LDFLAGS)'
 		fi
 	fi
 	a=$(($a+1)) 
@@ -66,7 +66,7 @@ done
     echo -e '\t$(RM) $(OBJ)'
 	echo '.PHONY: clean'
 	echo 'clean:'
-	echo -e "\t"'$(RM) $(OBJ) $(RMTARGETS)'
+	echo -e "\t"'$(RM) $(OBJ) $(RMTARGETS) '
 	echo 'distclean: clean'
     echo -e "\t"'$(RM) *$(EEXT) && $(RM) Makefile Makefile.vc'
     echo "generating dirs" >/dev/stderr
