@@ -36,7 +36,7 @@ do
         if [[ $TARGET != "analysis" && $TARGET != "useanalysis" ]]
         then
                 echo '$(TARGET'$a')$(EEXT): $(TARGET)'
-                echo -e "\t"'$(CC) $(CPPFLAGS) src/$(TARGET'$a').c  -o obj/'$TARGET$EEXT' $(LDFLAGS)'
+                echo -e "\t"'$(CC) $(CPPFLAGS) src/$(TARGET'$a').c  -o '$TARGET$EEXT' $(LDFLAGS)'
         else
                 if [[ $TARGET == "useanalysis" ]]
                 then

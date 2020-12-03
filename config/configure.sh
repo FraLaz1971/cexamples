@@ -1,6 +1,6 @@
 #/usr/bin/env bash
 echo "generating total makefile for $(uname) $OS ..." >/dev/stderr
-a=0;t=0;TARGETS="";RMTARGETS=""; EEXT=".exe";OEXT=".o"
+a=0;t=0;TARGETS="";RMTARGETS=""; EEXT="";OEXT=".o"
 echo 'CC=gcc -g '
 echo 'LD=gcc '
 echo 'MAKE = make'
@@ -27,27 +27,25 @@ a=0
 for s in $(ls -1 src/*.c)
 do
 	TARGET=$(basename ${s%.*})
-
-	echo 'obj/$(TARGET'$a')$(OEXT): src/$(TARGET'$a')'.c
-	echo -e "\t"'$(CC) -c  $< -o obj/'$TARGET'.o $(CPPFLAGS)'
-        if [[ $TARGET != "analysis" && $TARGET != "useanalysis"  ]]
+        if [[ $TARGET != "analysis" && $TARGET != "useanalysis" ]]
         then
-                echo '$(TARGET'$a'): obj/'$TARGET'$(OEXT)'
-                echo -e "\t"'$(CC) -o '$TARGET'$(EEXT) $< $(LDFLAGS)'
+                echo '$(TARGET'$a')$(EEXT): $(TARGET)'
+                echo -e "\t"'$(CC) $(CPPFLAGS) src/$(TARGET'$a').c  -o '$TARGET$EEXT' $(LDFLAGS)'
         else
                 if [[ $TARGET == "useanalysis" ]]
                 then
-                        echo 'analysis$(EEXT):'
-	                echo -e "\t"
-                        echo 'obj/analysis$(OEXT):'
-                        echo -e "\t"'$(CC) $(CPPFLAGS) src/analysis.c  -c  -o src/analysis.o $(CPPFLAGS)'
-                        echo 'obj/$(TARGET'$a')$(OEXT):'
-                        echo -e "\t"'$(CC) $(CPPFLAGS) src/$(TARGET'$a').c  -c  '$TARGET'.o $(CPPFLAGS)'
+                        echo 'analysis$(EEXT): useanalysis.exe'
+                        echo -e "\t"'$(CP) useanalysis$(EEXT) analysis$(EEXT)'
+                        echo 'obj/analysis$(OEXT): src/analysis.c'
+                        echo -e "\t"'$(CC)  $(CPPFLAGS) -c src/analysis.c   -o obj/analysis.o '
+                        echo 'obj/$(TARGET'$a')$(OEXT): src/useanalysis.c'
+                        echo -e "\t"'$(CC)  $(CPPFLAGS) -c src/$(TARGET'$a').c  -o  obj/'$TARGET'.o '
                         echo '$(TARGET'$a')$(EEXT): obj/analysis$(OEXT) obj/$(TARGET'$a')$(OEXT)'
-                        echo -e "\t"'$(LD) obj/$(TARGET'$a')$(OEXT) obj/analysis$(OEXT)  -o '$TARGET'$(EEXT) $(LDFLAGS)'
+                        echo -e "\t"'$(LD) obj/$(TARGET'$a')$(OEXT) obj/analysis$(OEXT) -o '$TARGET'$(EEXT) $(LDFLAGS)'
                 fi
-
         fi
+
+
 	a=$(($a+1)) 
 done
 echo 'echo created all targets' >/dev/stderr
