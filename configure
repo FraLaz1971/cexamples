@@ -24,7 +24,7 @@ then
         echo "detected GNU/linux $OS"
         uname -a
         lsb_release -a
-        . config/configurecrossx86_64mingw.sh > Makefile.lnx
+        . config/configure.sh > Makefile.lnx
 	cp Makefile.lnx Makefile
 elif [[ $(uname) == "Darwin" ]]
 then
