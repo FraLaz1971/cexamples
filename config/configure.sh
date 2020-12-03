@@ -3,6 +3,11 @@ echo "generating total makefile for $(uname) $OS ..." >/dev/stderr
 a=0;t=0;TARGETS="";RMTARGETS=""; EEXT="";OEXT=".o"
 echo 'CC=gcc -g '
 echo 'LD=gcc '
+echo 'CXXFLAGS = '
+echo 'CFLAGS = '
+echo 'RM = rm -f'
+echo 'MV = mv '
+echo 'CP = cp '
 echo 'MAKE = make'
 echo 'SRC = $(wildcard src/*.c)'
 echo "OBJ = src/*.o"
@@ -17,7 +22,7 @@ do
 	TARGET=$(basename ${t%.*})
 	echo 'TARGET'$a = $TARGET
 	TARGETS="$TARGET $TARGETS"
-	RMTARGETS="src/$TARGET $RMTARGETS"
+	RMTARGETS="$TARGET $RMTARGETS"
 	a=$(($a+1))
 done
 echo 'TARGETS' = $TARGETS
@@ -34,7 +39,7 @@ do
         else
                 if [[ $TARGET == "useanalysis" ]]
                 then
-                        echo 'analysis$(EEXT): useanalysis.exe'
+                        echo 'analysis$(EEXT): useanalysis$(EEXT)'
                         echo -e "\t"'$(CP) useanalysis$(EEXT) analysis$(EEXT)'
                         echo 'obj/analysis$(OEXT): src/analysis.c'
                         echo -e "\t"'$(CC)  $(CPPFLAGS) -c src/analysis.c   -o obj/analysis.o '

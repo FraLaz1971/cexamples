@@ -40,7 +40,7 @@ do
         else
                 if [[ $TARGET == "useanalysis" ]]
                 then
-                        echo 'analysis$(EEXT): useanalysis.exe'
+                        echo 'analysis$(EEXT): useanalysis$(EEXT)'
                         echo -e "\t"'$(CP) useanalysis$(EEXT) analysis$(EEXT)'
                         echo 'obj/analysis$(OEXT): src/analysis.c'
                         echo -e "\t"'$(CC)  $(CPPFLAGS) -c src/analysis.c   -o obj/analysis.o '
