@@ -4,9 +4,9 @@
 int *ivec;
 
 int *  iswap(int a, int b){
+      int tmp;
     ivec = malloc(2*sizeof(int));
     /* Local variables */
-      int tmp;
       tmp = a;
       a = b; *ivec = a;
       b = tmp; *(ivec+1) = b;

@@ -3,6 +3,7 @@
 int main()
 {
     int job_start_age, job_stop_age, death_age;
+    int ycontributed, yreceived, monthly_income, tot_months, total_payed;
     printf("enter age of death:");
     if(scanf("%i", &death_age) > 1) fprintf(stderr, "entered more than 1 value\n");
     printf("enter age of job start:");
@@ -12,7 +13,6 @@ int main()
     printf("\nMethuselah started his job at %i years.\n",job_start_age);
     printf("Methuselah stopped to work at %i years.\n",job_stop_age);
     printf("Methuselah died at %i years.\n",death_age);
-    int ycontributed, yreceived, monthly_income, tot_months, total_payed;
     ycontributed=job_stop_age-job_start_age; /* years during which he contributed */
     yreceived=death_age-job_stop_age;   /* years during which he recived */
     monthly_income=500; /* minimum monthly social income ($) */

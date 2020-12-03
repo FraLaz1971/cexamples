@@ -1,14 +1,14 @@
 #include <stdio.h>
 
 /* this program takes the filename of an ascii text file
-in input and prints every char. distantiated by a space 
+in input and prints every char. distantiated by a space
 at the end of reading gives the number of file lines read */
+FILE *fp;
 
 int main(int argc, char **argv){
+	int c, nl, n; nl = 0; 
 	if (argc == 2){
-		int c, nl; nl = 0;
-		FILE *fp;
-		int n = 0;
+		n = 0;
    		fp = fopen(argv[1],"r");
 		if(fp == NULL) {
       			perror("Error in opening file");

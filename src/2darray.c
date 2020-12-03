@@ -6,16 +6,18 @@
 #define MROW 8
 #define MCOL 6
 
-
  int main(){
-    int m,n; 
-     
+    int m,n, i, j;
 	int arr[MROW][MCOL]={
         {0,1,2},
         {3,4,5},
         {6,7,8},
         {9,10,11}
-    }; 
+    };
+int disp[2][4] = {
+    {10, 11, 12, 13},
+    {14, 15, 16, 17}
+};
     n=0; m=0;
     for(n=0; n<MROW; n++){
         for(m=0; m<MCOL; m++)
@@ -38,11 +40,6 @@
 
    /* 2D array declaration*/
    /*Counter variables for the loop*/
-   int i, j;
-int disp[2][4] = {
-    {10, 11, 12, 13},
-    {14, 15, 16, 17}
-};
 /*   Displaying array elements */
   printf("Two Dimensional array elements:\n");
    for(i=0; i<2; i++) {

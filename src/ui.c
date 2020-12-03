@@ -12,6 +12,7 @@ char buff[MDIM] = "";
 int ch, i;
 unsigned int a1d[MDIM];
 char *outfilename;
+char *infilename;
 int main (int argc, char *argv[])
 {
      /* argc = n of input pars, argv[0] = executable name, argv[1] - argv[n-1] cmdline pars */
@@ -27,7 +28,7 @@ int main (int argc, char *argv[])
      strcpy(es, argv[0]);
      /* open input file for reading */
      
-     char *infilename = (char *) argv[1];
+     infilename = (char *) argv[1];
      strcat(es, ": Can't open file "); strcat(es, infilename); strcat(es, " for reading\n");
      ifptr = fopen(infilename,"r");
      if (ifptr == NULL){ 

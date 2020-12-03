@@ -8,6 +8,7 @@
 int main(int argc, char *argv[]){
 	int n; /* n. of integers to be generated */
 	int c; /* counts the integers */
+	time_t t;
 	if (argc != 2){
 		printf("create a list of n random integers in [%d,%d)\n", IMIN, IMAX);
 		printf("usage: %s n\n", argv[0]);
@@ -16,7 +17,6 @@ int main(int argc, char *argv[]){
 		return EX_BADARGS;
 	} else {
 		n=atoi(argv[1]);
-		time_t t;
 		/* Intializes random number generator */
    		srand((unsigned) time(&t));
 	       /* Print n random numbers from IMIN and IMAX-1 */

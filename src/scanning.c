@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 int main(int argc, char *argv[]){
-        fprintf(stderr, "program %s reading from stdin %s\n", argv[0], argv[1]);
         int a, b, ret;
+        fprintf(stderr, "program %s reading from stdin %s\n", argv[0], argv[1]);
         printf("Please type two integer numbers separed by space:"); 
         ret = scanf("%d %d", &a, &b); 
         printf("n. of Input value read : %d\n", ret); 
