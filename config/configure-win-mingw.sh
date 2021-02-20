@@ -1,16 +1,16 @@
 #/usr/bin/env bash
 echo "generating total makefile for $(uname) $OS ..." >/dev/stderr
-a=0;t=0;TARGETS="";RMTARGETS="";EEXT=".exe";OEXT=".o"
-echo 'CC=x86_64-w64-mingw32-gcc -g -O2'
+a=0;t=0;TARGETS="";RMTARGETS="";EEXT=".exe";OEXT=".o";RM="rm -f"
 echo 'MAKE = mingw32-make'
 echo 'MAKEFILE = Makefile.mingw'
 echo 'EEXT = .exe'
 echo 'OEXT = .o'
 echo 'SRC = $(wildcard src/*.c)'
 echo "OBJ = src/*.o"
-echo 'CPPFLAGS = -Iinclude -Isrc -I/src/fun'
-echo 'LIBS = src/fun/libfun.a'
-echo 'LDFLAGS = -lm'
+echo 'CPPFLAGS = -Isrc'
+echo 'LIBS = -lm'
+echo 'LDFLAGS = -L.'
+echo 'RM = rm -f'
 for t in $(ls -1 src/*.c)
 do
 	TARGET=$(basename ${t%.*})
@@ -20,36 +20,37 @@ do
 	a=$(($a+1)) 
 done
 echo 'TARGETS' = $TARGETS
-echo 'RMTARGETS' = $RMTARGETS src/fun/libfun.a
-echo 'all: libfun $(TARGETS)'
-echo '#creating libfun'
-echo 'libfun: src/fun/functions.o'
-echo -e "\t"'cd src/fun && $(MAKE) -f $(MAKEFILE)'
-echo 'cleanlibfun:'
-echo -e "\t"'cd src/fun && $(MAKE) -f $(MAKEFILE) clean'
+echo 'RMTARGETS' = $RMTARGETS 
+echo 'all: $(TARGETS)'
 a=0
 for s in $(ls -1 src/*.c)
 do
 	TARGET=$(basename ${s%.*})
-	echo '$(TARGET'$a').o: src/'$TARGET'.c'
-	echo -e "\t"'$(CC) -c   $< -o src/'$TARGET'.o $(CPPFLAGS)'
-	if [[ $TARGET != "src/analysis" ]]
+	if [[ ( $TARGET != "useanalysis" ) && ( $TARGET != "analysis" ) ]]
 	then
+        echo '$(TARGET'$a').o: src/'$TARGET'.c'
+        echo -e "\t"'$(CC) -c   $< -o src/'$TARGET'$(OEXT) $(CPPFLAGS)'
 		echo '$(TARGET'$a'): src/'$TARGET'.o'
-		echo -e "\t"'$(CC) $< $(LIBS) -o src/'$TARGET' $(LDFLAGS)'
-	else
-		echo 'src/analysis.o:'
-		echo -e "\t"'$(CC) $< $(LIBS) -o src/'analysis' $(LDFLAGS)'
+		echo -e "\t"'$(CC) $< $(LIBS) -o src/'$TARGET'$(EEXT) $(LDFLAGS)'
 	fi
 	a=$(($a+1)) 
 done
+#create build rules for multiple file target(s)
+echo 'analysis.o: src/analysis.c src/analysis.h src/defines.h'
+echo -e "\t"'$(CC) -c   $< -o src/analysis$(OEXT) $(CPPFLAGS)'
+echo 'useanalysis: src/useanalysis.o src/analysis.o'
+echo -e "\t"'$(CC) $? $(LIBS) -o src/'analysis$EEXT' $(LDFLAGS)'
+echo 'analysis: useanalysis'
 echo 'echo created all targets' >/dev/stderr
 echo 'install: all'
 echo -e '\tmv $(TARGETS) bin'
-echo '.PHONY: clean distclean cleanlibfun'
-echo 'clean: cleanlibfun'
-echo -e "\t"'rm -f $(OBJ) $(RMTARGETS)'
+echo '.PHONY: clean distclean useanalysis cleananalysis cleanuseanalysis analysis'
+echo 'cleananalysis:'
+echo -e "\t"'$(RM) src/analysis.o src/useanalysis.o src/analysis.exe'
+echo 'cleanuseanalysis: cleananalysis'
+echo 'clean: cleananalysis'
+echo -e "\t"'$(RM) $(OBJ) $(RMTARGETS)'
 echo 'distclean: clean'
-echo -e "\trm -f bin/* Makefile* *.fit *.fits *.csv *.ssv *.tsv *.dat *.txt *.log"
+echo -e "\t"'$(RM) bin/* Makefile* *.fit *.fits *.csv *.ssv *.tsv *.dat *.txt *.log'
 echo "generating dirs" >/dev/stderr
 if ! test -d bin; then mkdir  bin; fi
