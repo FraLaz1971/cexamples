@@ -17,7 +17,10 @@ do
 	TARGET=$(basename ${t%.*})
 	echo 'TARGET'$a = $TARGET
 	TARGETS="$TARGET $TARGETS"
-	RMTARGETS="src/$TARGET$EEXT $RMTARGETS"
+    if [[ ( $TARGET != "useanalysis" ) ]]
+	then
+        RMTARGETS="src/$TARGET$EEXT $RMTARGETS"
+	fi
 	a=$(($a+1)) 
 done
 echo 'TARGETS' = $TARGETS
@@ -43,8 +46,8 @@ echo 'useanalysis: src/useanalysis.o src/analysis.o'
 echo -e "\t"'$(CC) $? $(LIBS) -o src/'analysis$EEXT' $(LDFLAGS)'
 echo 'analysis: useanalysis'
 echo 'echo created all targets' >/dev/stderr
-echo 'install: all'
-echo -e '\tmv $(TARGETS) bin'
+echo 'install: all analysis'
+echo -e '\tmv $(RMTARGETS) bin'
 echo '.PHONY: clean distclean useanalysis cleananalysis cleanuseanalysis analysis'
 echo 'cleananalysis:'
 echo -e "\t"'$(RM) src/analysis.o src/useanalysis.o src/analysis.exe'
