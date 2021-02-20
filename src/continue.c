@@ -7,7 +7,7 @@ int main () {
    do {
       if( a == 15) {
          /* skip the iteration */
-         //a = a + 1;
+         a = a + 1;
          continue;
       }
       printf("value of a: %d\n", a);
