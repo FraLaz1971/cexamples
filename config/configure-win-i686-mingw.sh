@@ -17,7 +17,7 @@ do
 	TARGET=$(basename ${t%.*})
 	echo 'TARGET'$a = $TARGET
 	TARGETS="$TARGET $TARGETS"
-    if [[ ( $TARGET != "useanalysis" ) ]]
+    if [[ ( $TARGET != "useanalysis" ) && ( $TARGET != "analysis" ) ]]
 	then
         RMTARGETS="src/$TARGET$EEXT $RMTARGETS"
 	fi
@@ -32,18 +32,20 @@ do
 	TARGET=$(basename ${s%.*})
 	if [[ ( $TARGET != "useanalysis" ) && ( $TARGET != "analysis" ) ]]
 	then
-        echo '$(TARGET'$a').o: src/'$TARGET'.c'
+        echo '$(TARGET'$a')$(OEXT): src/'$TARGET'.c'
         echo -e "\t"'$(CC) -c   $< -o src/'$TARGET'$(OEXT) $(CPPFLAGS)'
-		echo '$(TARGET'$a'): src/'$TARGET'.o'
+		echo 'src/$(TARGET'$a')$(EEXT): src/'$TARGET'.o'
 		echo -e "\t"'$(CC) $< $(LIBS) -o src/'$TARGET'$(EEXT) $(LDFLAGS)'
+        echo '$(TARGET'$a'): src/$(TARGET'$a')$(EEXT)'
 	fi
 	a=$(($a+1)) 
 done
 #create build rules for multiple file target(s)
-echo 'analysis.o: src/analysis.c src/analysis.h src/defines.h'
+echo 'src/analysis$(OEXT): src/analysis.c src/analysis.h src/defines.h'
 echo -e "\t"'$(CC) -c   $< -o src/analysis$(OEXT) $(CPPFLAGS)'
-echo 'useanalysis: src/useanalysis.o src/analysis.o'
+echo 'src/useanalysis$(EEXT): src/useanalysis.o src/analysis.o'
 echo -e "\t"'$(CC) $? $(LIBS) -o src/'analysis$EEXT' $(LDFLAGS)'
+echo 'useanalysis: src/useanalysis$(EEXT)'
 echo 'analysis: useanalysis'
 echo 'echo created all targets' >/dev/stderr
 echo 'install: all analysis'
@@ -51,6 +53,7 @@ echo -e '\tmv $(RMTARGETS) bin'
 echo '.PHONY: clean distclean useanalysis cleananalysis cleanuseanalysis analysis'
 echo 'cleananalysis:'
 echo -e "\t"'$(RM) src/analysis.o src/useanalysis.o src/analysis.exe'
+echo 'useanalysis: src/useanalysis$(EEXT)'
 echo 'cleanuseanalysis: cleananalysis'
 echo 'clean: cleananalysis'
 echo -e "\t"'$(RM) $(OBJ) $(RMTARGETS)'

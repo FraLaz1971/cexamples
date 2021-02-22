@@ -1,6 +1,7 @@
 #/usr/bin/env bash
 echo "generating total makefile for $(uname) $OS ..." >/dev/stderr
 a=0;t=0;TARGETS="";RMTARGETS="";EEXT=".exe";OEXT=".o";RM="rm -f"
+echo 'CC=x86_64-w64-mingw32-gcc -g -O2'
 echo 'MAKE = mingw32-make'
 echo 'MAKEFILE = Makefile.mingw'
 echo 'EEXT = .exe'
@@ -39,10 +40,11 @@ do
 	a=$(($a+1)) 
 done
 #create build rules for multiple file target(s)
-echo 'analysis.o: src/analysis.c src/analysis.h src/defines.h'
+echo 'src/analysis$(OEXT): src/analysis.c src/analysis.h src/defines.h'
 echo -e "\t"'$(CC) -c   $< -o src/analysis$(OEXT) $(CPPFLAGS)'
-echo 'useanalysis: src/useanalysis.o src/analysis.o'
+echo 'src/useanalysis$(EEXT): src/useanalysis.o src/analysis.o'
 echo -e "\t"'$(CC) $? $(LIBS) -o src/'analysis$EEXT' $(LDFLAGS)'
+echo 'useanalysis: src/useanalysis$(EEXT)'
 echo 'analysis: useanalysis'
 echo 'echo created all targets' >/dev/stderr
 echo 'install: all analysis'
@@ -50,6 +52,7 @@ echo -e '\tmv $(RMTARGETS) bin'
 echo '.PHONY: clean distclean useanalysis cleananalysis cleanuseanalysis analysis'
 echo 'cleananalysis:'
 echo -e "\t"'$(RM) src/analysis.o src/useanalysis.o src/analysis.exe'
+echo 'useanalysis: src/useanalysis$(EEXT)'
 echo 'cleanuseanalysis: cleananalysis'
 echo 'clean: cleananalysis'
 echo -e "\t"'$(RM) $(OBJ) $(RMTARGETS)'
