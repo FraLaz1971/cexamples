@@ -33,11 +33,11 @@ do
 	TARGET=$(basename ${s%.*})
 	if [[ ( $TARGET != "useanalysis" ) && ( $TARGET != "analysis" ) ]]
 	then
-	        echo '$(TARGET'$a')$(OEXT): src/$(TARGET'$a').c'
-        	echo -e "\t"'$(CC) -c  $< -o src/$(TARGET'$a')$(OEXT) $(CPPFLAGS)'
-            echo 'src/$(TARGET'$a')$(EEXT): src/$(TARGET'$a').o'
-            echo -e "\t"'$(CC) $< $(LIBS) -o src/$(TARGET'$a')$(EEXT) $(LDFLAGS)'
-	        echo '$(TARGET'$a'): src/$(TARGET'$a')$(EEXT)'
+	    echo '$(TARGET'$a')$(OEXT): src/$(TARGET'$a').c'
+            echo -e "\t"'$(CC)  $(CPPFLAGS) -c  $<  -o src/$(TARGET'$a')$(OEXT)'
+            echo 'src/$(TARGET'$a')$(EEXT): src/$(TARGET'$a')$(OEXT)'
+            echo -e "\t"'$(CC) $< -o src/$(TARGET'$a')$(EEXT) $(LDFLAGS) $(LIBS)'
+	    echo '$(TARGET'$a'): src/$(TARGET'$a')$(OEXT) src/$(TARGET'$a')$(EEXT)'
 	fi
 	a=$(($a+1)) 
 done
