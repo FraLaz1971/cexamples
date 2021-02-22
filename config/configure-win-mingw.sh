@@ -25,6 +25,7 @@ do
 done
 echo 'TARGETS' = $TARGETS
 echo 'RMTARGETS' = $RMTARGETS 
+echo '.PHONY: all $(TARGETS) clean distclean install'
 echo 'all: $(TARGETS)'
 a=0
 for s in $(ls -1 src/*.c)
@@ -32,10 +33,11 @@ do
 	TARGET=$(basename ${s%.*})
 	if [[ ( $TARGET != "useanalysis" ) && ( $TARGET != "analysis" ) ]]
 	then
-        echo '$(TARGET'$a').o: src/'$TARGET'.c'
-        echo -e "\t"'$(CC) -c   $< -o src/'$TARGET'$(OEXT) $(CPPFLAGS)'
-		echo '$(TARGET'$a'): src/'$TARGET'.o'
-		echo -e "\t"'$(CC) $< $(LIBS) -o src/'$TARGET'$(EEXT) $(LDFLAGS)'
+	        echo '$(TARGET'$a')$(OEXT): src/$(TARGET'$a').c'
+        	echo -e "\t"'$(CC) -c  $< -o src/$(TARGET'$a')$(OEXT) $(CPPFLAGS)'
+            echo 'src/$(TARGET'$a')$(EEXT): src/$(TARGET'$a').o'
+            echo -e "\t"'$(CC) $< $(LIBS) -o src/$(TARGET'$a')$(EEXT) $(LDFLAGS)'
+	        echo '$(TARGET'$a'): src/$(TARGET'$a')$(EEXT)'
 	fi
 	a=$(($a+1)) 
 done
