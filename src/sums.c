@@ -12,7 +12,7 @@ int main(){
 		sum = 0;
 /* present program on beginning output screen */
         puts("*****************************");
-        puts("**         sums.f          **");
+        puts("**         sums.c          **");
         puts("** summing first n numbers **");
         puts("*****************************");
 /* prompt input request to user */
