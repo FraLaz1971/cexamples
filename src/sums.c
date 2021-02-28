@@ -10,14 +10,21 @@
 int main(){
 		int i, n, sum, ret;
 		sum = 0;
-/* present program on beginning output screen */
+        /* present program on beginning output screen */
         puts("*****************************");
         puts("**         sums.c          **");
         puts("** summing first n numbers **");
         puts("*****************************");
-/* prompt input request to user */
+        /* prompt input request to user */
         printf("Please, type an integer in [1:+INF)\n");
-        scanf("%d", &n);
+        
+
+    /* ret variable is scanf() Return Value and can be used for error handling. 
+    * On success, the function returns the number of items of the argument list successfully read. 
+    * If a reading error happens or the end-of-file is reached while reading, 
+    * the proper indicator is set (feof or ferror) and, if either happens before any data could be
+    * successfully read, EOF is returned. (thanks to www.tutorialspoint.com) */ 
+        ret = scanf("%d", &n);
         /* do iteration loop on i from 1 to n
          of code included between curly brackets */
 		for (i = 1;i<=n;i++){
