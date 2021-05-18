@@ -1,0 +1,712 @@
+CC=x86_64-w64-mingw32-gcc -g -O2
+MAKE = mingw32-make
+MAKEFILE = Makefile.mingw
+EEXT = .exe
+OEXT = .o
+SRC = $(wildcard src/*.c)
+OBJ = src/*.o
+CPPFLAGS = -Isrc
+LIBS = -lm
+LDFLAGS = -L.
+RM = rm -f
+TARGET0 = 2darray
+TARGET1 = 2darrayfun
+TARGET2 = AllyGally
+TARGET3 = Matuselah
+TARGET4 = alert
+TARGET5 = alert2
+TARGET6 = altnames
+TARGET7 = analysis
+TARGET8 = ansi
+TARGET9 = ascii
+TARGET10 = assessed
+TARGET11 = assignstring
+TARGET12 = averageof3
+TARGET13 = blowup1
+TARGET14 = blowup2
+TARGET15 = blowup3
+TARGET16 = blowupvc
+TARGET17 = bomber
+TARGET18 = bonus
+TARGET19 = callex
+TARGET20 = callval
+TARGET21 = charloop
+TARGET22 = charme
+TARGET23 = charred
+TARGET24 = charstats
+TARGET25 = color
+TARGET26 = continue
+TARGET27 = countdwn
+TARGET28 = countlines
+TARGET29 = couplenames
+TARGET30 = crash1
+TARGET31 = dentist
+TARGET32 = dumpfunc
+TARGET33 = duo
+TARGET34 = dynamic1
+TARGET35 = favkey1
+TARGET36 = fgetline
+TARGET37 = fibonacci
+TARGET38 = first
+TARGET39 = forreal
+TARGET40 = genie
+TARGET41 = genie1
+TARGET42 = genie2
+TARGET43 = genie3
+TARGET44 = getline
+TARGET45 = greater-orig
+TARGET46 = greater
+TARGET47 = height
+TARGET48 = hellof
+TARGET49 = hellomsf
+TARGET50 = htest
+TARGET51 = hundred
+TARGET52 = insult2
+TARGET53 = insult3
+TARGET54 = insults
+TARGET55 = isanumber
+TARGET56 = jupiter
+TARGET57 = kitty
+TARGET58 = kitty2
+TARGET59 = kitty3
+TARGET60 = lardo
+TARGET61 = lardoxx
+TARGET62 = largest
+TARGET63 = letters
+TARGET64 = literals
+TARGET65 = lobby
+TARGET66 = lobby3
+TARGET67 = madlib
+TARGET68 = madlib2
+TARGET69 = main
+TARGET70 = meals
+TARGET71 = meals2
+TARGET72 = methus2
+TARGET73 = methus3
+TARGET74 = methus4
+TARGET75 = methus5-stdin
+TARGET76 = methus5
+TARGET77 = nested
+TARGET78 = ollyolly
+TARGET79 = pellets
+TARGET80 = pension
+TARGET81 = printout
+TARGET82 = puthchars
+TARGET83 = random_num_list
+TARGET84 = rangeloop
+TARGET85 = rangesteploop
+TARGET86 = readdynamic
+TARGET87 = readfile
+TARGET88 = scandir
+TARGET89 = scanfile
+TARGET90 = scanning
+TARGET91 = scanning2
+TARGET92 = showchars
+TARGET93 = simple
+TARGET94 = simplecolor
+TARGET95 = sizes
+TARGET96 = strings
+TARGET97 = structures
+TARGET98 = sums
+TARGET99 = taxes
+TARGET100 = testscanf
+TARGET101 = teststderr
+TARGET102 = teststrigvec
+TARGET103 = testtable
+TARGET104 = threenames
+TARGET105 = typer1
+TARGET106 = ui
+TARGET107 = useanalysis
+TARGET108 = wc
+TARGET109 = weather
+TARGET110 = weather2
+TARGET111 = weatherEU
+TARGET112 = which
+TARGET113 = words2lines
+TARGET114 = writefile
+TARGETS = writefile words2lines which weatherEU weather2 weather wc useanalysis ui typer1 threenames testtable teststrigvec teststderr testscanf taxes sums structures strings sizes simplecolor simple showchars scanning2 scanning scanfile scandir readfile readdynamic rangesteploop rangeloop random_num_list puthchars printout pension pellets ollyolly nested methus5 methus5-stdin methus4 methus3 methus2 meals2 meals main madlib2 madlib lobby3 lobby literals letters largest lardoxx lardo kitty3 kitty2 kitty jupiter isanumber insults insult3 insult2 hundred htest hellomsf hellof height greater greater-orig getline genie3 genie2 genie1 genie forreal first fibonacci fgetline favkey1 dynamic1 duo dumpfunc dentist crash1 couplenames countlines countdwn continue color charstats charred charme charloop callval callex bonus bomber blowupvc blowup3 blowup2 blowup1 averageof3 assignstring assessed ascii ansi analysis altnames alert2 alert Matuselah AllyGally 2darrayfun 2darray
+RMTARGETS = src/writefile.exe src/words2lines.exe src/which.exe src/weatherEU.exe src/weather2.exe src/weather.exe src/wc.exe src/ui.exe src/typer1.exe src/threenames.exe src/testtable.exe src/teststrigvec.exe src/teststderr.exe src/testscanf.exe src/taxes.exe src/sums.exe src/structures.exe src/strings.exe src/sizes.exe src/simplecolor.exe src/simple.exe src/showchars.exe src/scanning2.exe src/scanning.exe src/scanfile.exe src/scandir.exe src/readfile.exe src/readdynamic.exe src/rangesteploop.exe src/rangeloop.exe src/random_num_list.exe src/puthchars.exe src/printout.exe src/pension.exe src/pellets.exe src/ollyolly.exe src/nested.exe src/methus5.exe src/methus5-stdin.exe src/methus4.exe src/methus3.exe src/methus2.exe src/meals2.exe src/meals.exe src/main.exe src/madlib2.exe src/madlib.exe src/lobby3.exe src/lobby.exe src/literals.exe src/letters.exe src/largest.exe src/lardoxx.exe src/lardo.exe src/kitty3.exe src/kitty2.exe src/kitty.exe src/jupiter.exe src/isanumber.exe src/insults.exe src/insult3.exe src/insult2.exe src/hundred.exe src/htest.exe src/hellomsf.exe src/hellof.exe src/height.exe src/greater.exe src/greater-orig.exe src/getline.exe src/genie3.exe src/genie2.exe src/genie1.exe src/genie.exe src/forreal.exe src/first.exe src/fibonacci.exe src/fgetline.exe src/favkey1.exe src/dynamic1.exe src/duo.exe src/dumpfunc.exe src/dentist.exe src/crash1.exe src/couplenames.exe src/countlines.exe src/countdwn.exe src/continue.exe src/color.exe src/charstats.exe src/charred.exe src/charme.exe src/charloop.exe src/callval.exe src/callex.exe src/bonus.exe src/bomber.exe src/blowupvc.exe src/blowup3.exe src/blowup2.exe src/blowup1.exe src/averageof3.exe src/assignstring.exe src/assessed.exe src/ascii.exe src/ansi.exe src/analysis.exe src/altnames.exe src/alert2.exe src/alert.exe src/Matuselah.exe src/AllyGally.exe src/2darrayfun.exe src/2darray.exe
+.PHONY: all $(TARGETS) clean distclean install
+all: $(TARGETS)
+$(TARGET0)$(OEXT): src/$(TARGET0).c
+	$(CC) -c  $< -o src/$(TARGET0)$(OEXT) $(CPPFLAGS)
+src/$(TARGET0)$(EEXT): src/$(TARGET0).o
+	$(CC) $< $(LIBS) -o src/$(TARGET0)$(EEXT) $(LDFLAGS)
+$(TARGET0): src/$(TARGET0)$(EEXT)
+$(TARGET1)$(OEXT): src/$(TARGET1).c
+	$(CC) -c  $< -o src/$(TARGET1)$(OEXT) $(CPPFLAGS)
+src/$(TARGET1)$(EEXT): src/$(TARGET1).o
+	$(CC) $< $(LIBS) -o src/$(TARGET1)$(EEXT) $(LDFLAGS)
+$(TARGET1): src/$(TARGET1)$(EEXT)
+$(TARGET2)$(OEXT): src/$(TARGET2).c
+	$(CC) -c  $< -o src/$(TARGET2)$(OEXT) $(CPPFLAGS)
+src/$(TARGET2)$(EEXT): src/$(TARGET2).o
+	$(CC) $< $(LIBS) -o src/$(TARGET2)$(EEXT) $(LDFLAGS)
+$(TARGET2): src/$(TARGET2)$(EEXT)
+$(TARGET3)$(OEXT): src/$(TARGET3).c
+	$(CC) -c  $< -o src/$(TARGET3)$(OEXT) $(CPPFLAGS)
+src/$(TARGET3)$(EEXT): src/$(TARGET3).o
+	$(CC) $< $(LIBS) -o src/$(TARGET3)$(EEXT) $(LDFLAGS)
+$(TARGET3): src/$(TARGET3)$(EEXT)
+$(TARGET4)$(OEXT): src/$(TARGET4).c
+	$(CC) -c  $< -o src/$(TARGET4)$(OEXT) $(CPPFLAGS)
+src/$(TARGET4)$(EEXT): src/$(TARGET4).o
+	$(CC) $< $(LIBS) -o src/$(TARGET4)$(EEXT) $(LDFLAGS)
+$(TARGET4): src/$(TARGET4)$(EEXT)
+$(TARGET5)$(OEXT): src/$(TARGET5).c
+	$(CC) -c  $< -o src/$(TARGET5)$(OEXT) $(CPPFLAGS)
+src/$(TARGET5)$(EEXT): src/$(TARGET5).o
+	$(CC) $< $(LIBS) -o src/$(TARGET5)$(EEXT) $(LDFLAGS)
+$(TARGET5): src/$(TARGET5)$(EEXT)
+$(TARGET6)$(OEXT): src/$(TARGET6).c
+	$(CC) -c  $< -o src/$(TARGET6)$(OEXT) $(CPPFLAGS)
+src/$(TARGET6)$(EEXT): src/$(TARGET6).o
+	$(CC) $< $(LIBS) -o src/$(TARGET6)$(EEXT) $(LDFLAGS)
+$(TARGET6): src/$(TARGET6)$(EEXT)
+$(TARGET8)$(OEXT): src/$(TARGET8).c
+	$(CC) -c  $< -o src/$(TARGET8)$(OEXT) $(CPPFLAGS)
+src/$(TARGET8)$(EEXT): src/$(TARGET8).o
+	$(CC) $< $(LIBS) -o src/$(TARGET8)$(EEXT) $(LDFLAGS)
+$(TARGET8): src/$(TARGET8)$(EEXT)
+$(TARGET9)$(OEXT): src/$(TARGET9).c
+	$(CC) -c  $< -o src/$(TARGET9)$(OEXT) $(CPPFLAGS)
+src/$(TARGET9)$(EEXT): src/$(TARGET9).o
+	$(CC) $< $(LIBS) -o src/$(TARGET9)$(EEXT) $(LDFLAGS)
+$(TARGET9): src/$(TARGET9)$(EEXT)
+$(TARGET10)$(OEXT): src/$(TARGET10).c
+	$(CC) -c  $< -o src/$(TARGET10)$(OEXT) $(CPPFLAGS)
+src/$(TARGET10)$(EEXT): src/$(TARGET10).o
+	$(CC) $< $(LIBS) -o src/$(TARGET10)$(EEXT) $(LDFLAGS)
+$(TARGET10): src/$(TARGET10)$(EEXT)
+$(TARGET11)$(OEXT): src/$(TARGET11).c
+	$(CC) -c  $< -o src/$(TARGET11)$(OEXT) $(CPPFLAGS)
+src/$(TARGET11)$(EEXT): src/$(TARGET11).o
+	$(CC) $< $(LIBS) -o src/$(TARGET11)$(EEXT) $(LDFLAGS)
+$(TARGET11): src/$(TARGET11)$(EEXT)
+$(TARGET12)$(OEXT): src/$(TARGET12).c
+	$(CC) -c  $< -o src/$(TARGET12)$(OEXT) $(CPPFLAGS)
+src/$(TARGET12)$(EEXT): src/$(TARGET12).o
+	$(CC) $< $(LIBS) -o src/$(TARGET12)$(EEXT) $(LDFLAGS)
+$(TARGET12): src/$(TARGET12)$(EEXT)
+$(TARGET13)$(OEXT): src/$(TARGET13).c
+	$(CC) -c  $< -o src/$(TARGET13)$(OEXT) $(CPPFLAGS)
+src/$(TARGET13)$(EEXT): src/$(TARGET13).o
+	$(CC) $< $(LIBS) -o src/$(TARGET13)$(EEXT) $(LDFLAGS)
+$(TARGET13): src/$(TARGET13)$(EEXT)
+$(TARGET14)$(OEXT): src/$(TARGET14).c
+	$(CC) -c  $< -o src/$(TARGET14)$(OEXT) $(CPPFLAGS)
+src/$(TARGET14)$(EEXT): src/$(TARGET14).o
+	$(CC) $< $(LIBS) -o src/$(TARGET14)$(EEXT) $(LDFLAGS)
+$(TARGET14): src/$(TARGET14)$(EEXT)
+$(TARGET15)$(OEXT): src/$(TARGET15).c
+	$(CC) -c  $< -o src/$(TARGET15)$(OEXT) $(CPPFLAGS)
+src/$(TARGET15)$(EEXT): src/$(TARGET15).o
+	$(CC) $< $(LIBS) -o src/$(TARGET15)$(EEXT) $(LDFLAGS)
+$(TARGET15): src/$(TARGET15)$(EEXT)
+$(TARGET16)$(OEXT): src/$(TARGET16).c
+	$(CC) -c  $< -o src/$(TARGET16)$(OEXT) $(CPPFLAGS)
+src/$(TARGET16)$(EEXT): src/$(TARGET16).o
+	$(CC) $< $(LIBS) -o src/$(TARGET16)$(EEXT) $(LDFLAGS)
+$(TARGET16): src/$(TARGET16)$(EEXT)
+$(TARGET17)$(OEXT): src/$(TARGET17).c
+	$(CC) -c  $< -o src/$(TARGET17)$(OEXT) $(CPPFLAGS)
+src/$(TARGET17)$(EEXT): src/$(TARGET17).o
+	$(CC) $< $(LIBS) -o src/$(TARGET17)$(EEXT) $(LDFLAGS)
+$(TARGET17): src/$(TARGET17)$(EEXT)
+$(TARGET18)$(OEXT): src/$(TARGET18).c
+	$(CC) -c  $< -o src/$(TARGET18)$(OEXT) $(CPPFLAGS)
+src/$(TARGET18)$(EEXT): src/$(TARGET18).o
+	$(CC) $< $(LIBS) -o src/$(TARGET18)$(EEXT) $(LDFLAGS)
+$(TARGET18): src/$(TARGET18)$(EEXT)
+$(TARGET19)$(OEXT): src/$(TARGET19).c
+	$(CC) -c  $< -o src/$(TARGET19)$(OEXT) $(CPPFLAGS)
+src/$(TARGET19)$(EEXT): src/$(TARGET19).o
+	$(CC) $< $(LIBS) -o src/$(TARGET19)$(EEXT) $(LDFLAGS)
+$(TARGET19): src/$(TARGET19)$(EEXT)
+$(TARGET20)$(OEXT): src/$(TARGET20).c
+	$(CC) -c  $< -o src/$(TARGET20)$(OEXT) $(CPPFLAGS)
+src/$(TARGET20)$(EEXT): src/$(TARGET20).o
+	$(CC) $< $(LIBS) -o src/$(TARGET20)$(EEXT) $(LDFLAGS)
+$(TARGET20): src/$(TARGET20)$(EEXT)
+$(TARGET21)$(OEXT): src/$(TARGET21).c
+	$(CC) -c  $< -o src/$(TARGET21)$(OEXT) $(CPPFLAGS)
+src/$(TARGET21)$(EEXT): src/$(TARGET21).o
+	$(CC) $< $(LIBS) -o src/$(TARGET21)$(EEXT) $(LDFLAGS)
+$(TARGET21): src/$(TARGET21)$(EEXT)
+$(TARGET22)$(OEXT): src/$(TARGET22).c
+	$(CC) -c  $< -o src/$(TARGET22)$(OEXT) $(CPPFLAGS)
+src/$(TARGET22)$(EEXT): src/$(TARGET22).o
+	$(CC) $< $(LIBS) -o src/$(TARGET22)$(EEXT) $(LDFLAGS)
+$(TARGET22): src/$(TARGET22)$(EEXT)
+$(TARGET23)$(OEXT): src/$(TARGET23).c
+	$(CC) -c  $< -o src/$(TARGET23)$(OEXT) $(CPPFLAGS)
+src/$(TARGET23)$(EEXT): src/$(TARGET23).o
+	$(CC) $< $(LIBS) -o src/$(TARGET23)$(EEXT) $(LDFLAGS)
+$(TARGET23): src/$(TARGET23)$(EEXT)
+$(TARGET24)$(OEXT): src/$(TARGET24).c
+	$(CC) -c  $< -o src/$(TARGET24)$(OEXT) $(CPPFLAGS)
+src/$(TARGET24)$(EEXT): src/$(TARGET24).o
+	$(CC) $< $(LIBS) -o src/$(TARGET24)$(EEXT) $(LDFLAGS)
+$(TARGET24): src/$(TARGET24)$(EEXT)
+$(TARGET25)$(OEXT): src/$(TARGET25).c
+	$(CC) -c  $< -o src/$(TARGET25)$(OEXT) $(CPPFLAGS)
+src/$(TARGET25)$(EEXT): src/$(TARGET25).o
+	$(CC) $< $(LIBS) -o src/$(TARGET25)$(EEXT) $(LDFLAGS)
+$(TARGET25): src/$(TARGET25)$(EEXT)
+$(TARGET26)$(OEXT): src/$(TARGET26).c
+	$(CC) -c  $< -o src/$(TARGET26)$(OEXT) $(CPPFLAGS)
+src/$(TARGET26)$(EEXT): src/$(TARGET26).o
+	$(CC) $< $(LIBS) -o src/$(TARGET26)$(EEXT) $(LDFLAGS)
+$(TARGET26): src/$(TARGET26)$(EEXT)
+$(TARGET27)$(OEXT): src/$(TARGET27).c
+	$(CC) -c  $< -o src/$(TARGET27)$(OEXT) $(CPPFLAGS)
+src/$(TARGET27)$(EEXT): src/$(TARGET27).o
+	$(CC) $< $(LIBS) -o src/$(TARGET27)$(EEXT) $(LDFLAGS)
+$(TARGET27): src/$(TARGET27)$(EEXT)
+$(TARGET28)$(OEXT): src/$(TARGET28).c
+	$(CC) -c  $< -o src/$(TARGET28)$(OEXT) $(CPPFLAGS)
+src/$(TARGET28)$(EEXT): src/$(TARGET28).o
+	$(CC) $< $(LIBS) -o src/$(TARGET28)$(EEXT) $(LDFLAGS)
+$(TARGET28): src/$(TARGET28)$(EEXT)
+$(TARGET29)$(OEXT): src/$(TARGET29).c
+	$(CC) -c  $< -o src/$(TARGET29)$(OEXT) $(CPPFLAGS)
+src/$(TARGET29)$(EEXT): src/$(TARGET29).o
+	$(CC) $< $(LIBS) -o src/$(TARGET29)$(EEXT) $(LDFLAGS)
+$(TARGET29): src/$(TARGET29)$(EEXT)
+$(TARGET30)$(OEXT): src/$(TARGET30).c
+	$(CC) -c  $< -o src/$(TARGET30)$(OEXT) $(CPPFLAGS)
+src/$(TARGET30)$(EEXT): src/$(TARGET30).o
+	$(CC) $< $(LIBS) -o src/$(TARGET30)$(EEXT) $(LDFLAGS)
+$(TARGET30): src/$(TARGET30)$(EEXT)
+$(TARGET31)$(OEXT): src/$(TARGET31).c
+	$(CC) -c  $< -o src/$(TARGET31)$(OEXT) $(CPPFLAGS)
+src/$(TARGET31)$(EEXT): src/$(TARGET31).o
+	$(CC) $< $(LIBS) -o src/$(TARGET31)$(EEXT) $(LDFLAGS)
+$(TARGET31): src/$(TARGET31)$(EEXT)
+$(TARGET32)$(OEXT): src/$(TARGET32).c
+	$(CC) -c  $< -o src/$(TARGET32)$(OEXT) $(CPPFLAGS)
+src/$(TARGET32)$(EEXT): src/$(TARGET32).o
+	$(CC) $< $(LIBS) -o src/$(TARGET32)$(EEXT) $(LDFLAGS)
+$(TARGET32): src/$(TARGET32)$(EEXT)
+$(TARGET33)$(OEXT): src/$(TARGET33).c
+	$(CC) -c  $< -o src/$(TARGET33)$(OEXT) $(CPPFLAGS)
+src/$(TARGET33)$(EEXT): src/$(TARGET33).o
+	$(CC) $< $(LIBS) -o src/$(TARGET33)$(EEXT) $(LDFLAGS)
+$(TARGET33): src/$(TARGET33)$(EEXT)
+$(TARGET34)$(OEXT): src/$(TARGET34).c
+	$(CC) -c  $< -o src/$(TARGET34)$(OEXT) $(CPPFLAGS)
+src/$(TARGET34)$(EEXT): src/$(TARGET34).o
+	$(CC) $< $(LIBS) -o src/$(TARGET34)$(EEXT) $(LDFLAGS)
+$(TARGET34): src/$(TARGET34)$(EEXT)
+$(TARGET35)$(OEXT): src/$(TARGET35).c
+	$(CC) -c  $< -o src/$(TARGET35)$(OEXT) $(CPPFLAGS)
+src/$(TARGET35)$(EEXT): src/$(TARGET35).o
+	$(CC) $< $(LIBS) -o src/$(TARGET35)$(EEXT) $(LDFLAGS)
+$(TARGET35): src/$(TARGET35)$(EEXT)
+$(TARGET36)$(OEXT): src/$(TARGET36).c
+	$(CC) -c  $< -o src/$(TARGET36)$(OEXT) $(CPPFLAGS)
+src/$(TARGET36)$(EEXT): src/$(TARGET36).o
+	$(CC) $< $(LIBS) -o src/$(TARGET36)$(EEXT) $(LDFLAGS)
+$(TARGET36): src/$(TARGET36)$(EEXT)
+$(TARGET37)$(OEXT): src/$(TARGET37).c
+	$(CC) -c  $< -o src/$(TARGET37)$(OEXT) $(CPPFLAGS)
+src/$(TARGET37)$(EEXT): src/$(TARGET37).o
+	$(CC) $< $(LIBS) -o src/$(TARGET37)$(EEXT) $(LDFLAGS)
+$(TARGET37): src/$(TARGET37)$(EEXT)
+$(TARGET38)$(OEXT): src/$(TARGET38).c
+	$(CC) -c  $< -o src/$(TARGET38)$(OEXT) $(CPPFLAGS)
+src/$(TARGET38)$(EEXT): src/$(TARGET38).o
+	$(CC) $< $(LIBS) -o src/$(TARGET38)$(EEXT) $(LDFLAGS)
+$(TARGET38): src/$(TARGET38)$(EEXT)
+$(TARGET39)$(OEXT): src/$(TARGET39).c
+	$(CC) -c  $< -o src/$(TARGET39)$(OEXT) $(CPPFLAGS)
+src/$(TARGET39)$(EEXT): src/$(TARGET39).o
+	$(CC) $< $(LIBS) -o src/$(TARGET39)$(EEXT) $(LDFLAGS)
+$(TARGET39): src/$(TARGET39)$(EEXT)
+$(TARGET40)$(OEXT): src/$(TARGET40).c
+	$(CC) -c  $< -o src/$(TARGET40)$(OEXT) $(CPPFLAGS)
+src/$(TARGET40)$(EEXT): src/$(TARGET40).o
+	$(CC) $< $(LIBS) -o src/$(TARGET40)$(EEXT) $(LDFLAGS)
+$(TARGET40): src/$(TARGET40)$(EEXT)
+$(TARGET41)$(OEXT): src/$(TARGET41).c
+	$(CC) -c  $< -o src/$(TARGET41)$(OEXT) $(CPPFLAGS)
+src/$(TARGET41)$(EEXT): src/$(TARGET41).o
+	$(CC) $< $(LIBS) -o src/$(TARGET41)$(EEXT) $(LDFLAGS)
+$(TARGET41): src/$(TARGET41)$(EEXT)
+$(TARGET42)$(OEXT): src/$(TARGET42).c
+	$(CC) -c  $< -o src/$(TARGET42)$(OEXT) $(CPPFLAGS)
+src/$(TARGET42)$(EEXT): src/$(TARGET42).o
+	$(CC) $< $(LIBS) -o src/$(TARGET42)$(EEXT) $(LDFLAGS)
+$(TARGET42): src/$(TARGET42)$(EEXT)
+$(TARGET43)$(OEXT): src/$(TARGET43).c
+	$(CC) -c  $< -o src/$(TARGET43)$(OEXT) $(CPPFLAGS)
+src/$(TARGET43)$(EEXT): src/$(TARGET43).o
+	$(CC) $< $(LIBS) -o src/$(TARGET43)$(EEXT) $(LDFLAGS)
+$(TARGET43): src/$(TARGET43)$(EEXT)
+$(TARGET44)$(OEXT): src/$(TARGET44).c
+	$(CC) -c  $< -o src/$(TARGET44)$(OEXT) $(CPPFLAGS)
+src/$(TARGET44)$(EEXT): src/$(TARGET44).o
+	$(CC) $< $(LIBS) -o src/$(TARGET44)$(EEXT) $(LDFLAGS)
+$(TARGET44): src/$(TARGET44)$(EEXT)
+$(TARGET45)$(OEXT): src/$(TARGET45).c
+	$(CC) -c  $< -o src/$(TARGET45)$(OEXT) $(CPPFLAGS)
+src/$(TARGET45)$(EEXT): src/$(TARGET45).o
+	$(CC) $< $(LIBS) -o src/$(TARGET45)$(EEXT) $(LDFLAGS)
+$(TARGET45): src/$(TARGET45)$(EEXT)
+$(TARGET46)$(OEXT): src/$(TARGET46).c
+	$(CC) -c  $< -o src/$(TARGET46)$(OEXT) $(CPPFLAGS)
+src/$(TARGET46)$(EEXT): src/$(TARGET46).o
+	$(CC) $< $(LIBS) -o src/$(TARGET46)$(EEXT) $(LDFLAGS)
+$(TARGET46): src/$(TARGET46)$(EEXT)
+$(TARGET47)$(OEXT): src/$(TARGET47).c
+	$(CC) -c  $< -o src/$(TARGET47)$(OEXT) $(CPPFLAGS)
+src/$(TARGET47)$(EEXT): src/$(TARGET47).o
+	$(CC) $< $(LIBS) -o src/$(TARGET47)$(EEXT) $(LDFLAGS)
+$(TARGET47): src/$(TARGET47)$(EEXT)
+$(TARGET48)$(OEXT): src/$(TARGET48).c
+	$(CC) -c  $< -o src/$(TARGET48)$(OEXT) $(CPPFLAGS)
+src/$(TARGET48)$(EEXT): src/$(TARGET48).o
+	$(CC) $< $(LIBS) -o src/$(TARGET48)$(EEXT) $(LDFLAGS)
+$(TARGET48): src/$(TARGET48)$(EEXT)
+$(TARGET49)$(OEXT): src/$(TARGET49).c
+	$(CC) -c  $< -o src/$(TARGET49)$(OEXT) $(CPPFLAGS)
+src/$(TARGET49)$(EEXT): src/$(TARGET49).o
+	$(CC) $< $(LIBS) -o src/$(TARGET49)$(EEXT) $(LDFLAGS)
+$(TARGET49): src/$(TARGET49)$(EEXT)
+$(TARGET50)$(OEXT): src/$(TARGET50).c
+	$(CC) -c  $< -o src/$(TARGET50)$(OEXT) $(CPPFLAGS)
+src/$(TARGET50)$(EEXT): src/$(TARGET50).o
+	$(CC) $< $(LIBS) -o src/$(TARGET50)$(EEXT) $(LDFLAGS)
+$(TARGET50): src/$(TARGET50)$(EEXT)
+$(TARGET51)$(OEXT): src/$(TARGET51).c
+	$(CC) -c  $< -o src/$(TARGET51)$(OEXT) $(CPPFLAGS)
+src/$(TARGET51)$(EEXT): src/$(TARGET51).o
+	$(CC) $< $(LIBS) -o src/$(TARGET51)$(EEXT) $(LDFLAGS)
+$(TARGET51): src/$(TARGET51)$(EEXT)
+$(TARGET52)$(OEXT): src/$(TARGET52).c
+	$(CC) -c  $< -o src/$(TARGET52)$(OEXT) $(CPPFLAGS)
+src/$(TARGET52)$(EEXT): src/$(TARGET52).o
+	$(CC) $< $(LIBS) -o src/$(TARGET52)$(EEXT) $(LDFLAGS)
+$(TARGET52): src/$(TARGET52)$(EEXT)
+$(TARGET53)$(OEXT): src/$(TARGET53).c
+	$(CC) -c  $< -o src/$(TARGET53)$(OEXT) $(CPPFLAGS)
+src/$(TARGET53)$(EEXT): src/$(TARGET53).o
+	$(CC) $< $(LIBS) -o src/$(TARGET53)$(EEXT) $(LDFLAGS)
+$(TARGET53): src/$(TARGET53)$(EEXT)
+$(TARGET54)$(OEXT): src/$(TARGET54).c
+	$(CC) -c  $< -o src/$(TARGET54)$(OEXT) $(CPPFLAGS)
+src/$(TARGET54)$(EEXT): src/$(TARGET54).o
+	$(CC) $< $(LIBS) -o src/$(TARGET54)$(EEXT) $(LDFLAGS)
+$(TARGET54): src/$(TARGET54)$(EEXT)
+$(TARGET55)$(OEXT): src/$(TARGET55).c
+	$(CC) -c  $< -o src/$(TARGET55)$(OEXT) $(CPPFLAGS)
+src/$(TARGET55)$(EEXT): src/$(TARGET55).o
+	$(CC) $< $(LIBS) -o src/$(TARGET55)$(EEXT) $(LDFLAGS)
+$(TARGET55): src/$(TARGET55)$(EEXT)
+$(TARGET56)$(OEXT): src/$(TARGET56).c
+	$(CC) -c  $< -o src/$(TARGET56)$(OEXT) $(CPPFLAGS)
+src/$(TARGET56)$(EEXT): src/$(TARGET56).o
+	$(CC) $< $(LIBS) -o src/$(TARGET56)$(EEXT) $(LDFLAGS)
+$(TARGET56): src/$(TARGET56)$(EEXT)
+$(TARGET57)$(OEXT): src/$(TARGET57).c
+	$(CC) -c  $< -o src/$(TARGET57)$(OEXT) $(CPPFLAGS)
+src/$(TARGET57)$(EEXT): src/$(TARGET57).o
+	$(CC) $< $(LIBS) -o src/$(TARGET57)$(EEXT) $(LDFLAGS)
+$(TARGET57): src/$(TARGET57)$(EEXT)
+$(TARGET58)$(OEXT): src/$(TARGET58).c
+	$(CC) -c  $< -o src/$(TARGET58)$(OEXT) $(CPPFLAGS)
+src/$(TARGET58)$(EEXT): src/$(TARGET58).o
+	$(CC) $< $(LIBS) -o src/$(TARGET58)$(EEXT) $(LDFLAGS)
+$(TARGET58): src/$(TARGET58)$(EEXT)
+$(TARGET59)$(OEXT): src/$(TARGET59).c
+	$(CC) -c  $< -o src/$(TARGET59)$(OEXT) $(CPPFLAGS)
+src/$(TARGET59)$(EEXT): src/$(TARGET59).o
+	$(CC) $< $(LIBS) -o src/$(TARGET59)$(EEXT) $(LDFLAGS)
+$(TARGET59): src/$(TARGET59)$(EEXT)
+$(TARGET60)$(OEXT): src/$(TARGET60).c
+	$(CC) -c  $< -o src/$(TARGET60)$(OEXT) $(CPPFLAGS)
+src/$(TARGET60)$(EEXT): src/$(TARGET60).o
+	$(CC) $< $(LIBS) -o src/$(TARGET60)$(EEXT) $(LDFLAGS)
+$(TARGET60): src/$(TARGET60)$(EEXT)
+$(TARGET61)$(OEXT): src/$(TARGET61).c
+	$(CC) -c  $< -o src/$(TARGET61)$(OEXT) $(CPPFLAGS)
+src/$(TARGET61)$(EEXT): src/$(TARGET61).o
+	$(CC) $< $(LIBS) -o src/$(TARGET61)$(EEXT) $(LDFLAGS)
+$(TARGET61): src/$(TARGET61)$(EEXT)
+$(TARGET62)$(OEXT): src/$(TARGET62).c
+	$(CC) -c  $< -o src/$(TARGET62)$(OEXT) $(CPPFLAGS)
+src/$(TARGET62)$(EEXT): src/$(TARGET62).o
+	$(CC) $< $(LIBS) -o src/$(TARGET62)$(EEXT) $(LDFLAGS)
+$(TARGET62): src/$(TARGET62)$(EEXT)
+$(TARGET63)$(OEXT): src/$(TARGET63).c
+	$(CC) -c  $< -o src/$(TARGET63)$(OEXT) $(CPPFLAGS)
+src/$(TARGET63)$(EEXT): src/$(TARGET63).o
+	$(CC) $< $(LIBS) -o src/$(TARGET63)$(EEXT) $(LDFLAGS)
+$(TARGET63): src/$(TARGET63)$(EEXT)
+$(TARGET64)$(OEXT): src/$(TARGET64).c
+	$(CC) -c  $< -o src/$(TARGET64)$(OEXT) $(CPPFLAGS)
+src/$(TARGET64)$(EEXT): src/$(TARGET64).o
+	$(CC) $< $(LIBS) -o src/$(TARGET64)$(EEXT) $(LDFLAGS)
+$(TARGET64): src/$(TARGET64)$(EEXT)
+$(TARGET65)$(OEXT): src/$(TARGET65).c
+	$(CC) -c  $< -o src/$(TARGET65)$(OEXT) $(CPPFLAGS)
+src/$(TARGET65)$(EEXT): src/$(TARGET65).o
+	$(CC) $< $(LIBS) -o src/$(TARGET65)$(EEXT) $(LDFLAGS)
+$(TARGET65): src/$(TARGET65)$(EEXT)
+$(TARGET66)$(OEXT): src/$(TARGET66).c
+	$(CC) -c  $< -o src/$(TARGET66)$(OEXT) $(CPPFLAGS)
+src/$(TARGET66)$(EEXT): src/$(TARGET66).o
+	$(CC) $< $(LIBS) -o src/$(TARGET66)$(EEXT) $(LDFLAGS)
+$(TARGET66): src/$(TARGET66)$(EEXT)
+$(TARGET67)$(OEXT): src/$(TARGET67).c
+	$(CC) -c  $< -o src/$(TARGET67)$(OEXT) $(CPPFLAGS)
+src/$(TARGET67)$(EEXT): src/$(TARGET67).o
+	$(CC) $< $(LIBS) -o src/$(TARGET67)$(EEXT) $(LDFLAGS)
+$(TARGET67): src/$(TARGET67)$(EEXT)
+$(TARGET68)$(OEXT): src/$(TARGET68).c
+	$(CC) -c  $< -o src/$(TARGET68)$(OEXT) $(CPPFLAGS)
+src/$(TARGET68)$(EEXT): src/$(TARGET68).o
+	$(CC) $< $(LIBS) -o src/$(TARGET68)$(EEXT) $(LDFLAGS)
+$(TARGET68): src/$(TARGET68)$(EEXT)
+$(TARGET69)$(OEXT): src/$(TARGET69).c
+	$(CC) -c  $< -o src/$(TARGET69)$(OEXT) $(CPPFLAGS)
+src/$(TARGET69)$(EEXT): src/$(TARGET69).o
+	$(CC) $< $(LIBS) -o src/$(TARGET69)$(EEXT) $(LDFLAGS)
+$(TARGET69): src/$(TARGET69)$(EEXT)
+$(TARGET70)$(OEXT): src/$(TARGET70).c
+	$(CC) -c  $< -o src/$(TARGET70)$(OEXT) $(CPPFLAGS)
+src/$(TARGET70)$(EEXT): src/$(TARGET70).o
+	$(CC) $< $(LIBS) -o src/$(TARGET70)$(EEXT) $(LDFLAGS)
+$(TARGET70): src/$(TARGET70)$(EEXT)
+$(TARGET71)$(OEXT): src/$(TARGET71).c
+	$(CC) -c  $< -o src/$(TARGET71)$(OEXT) $(CPPFLAGS)
+src/$(TARGET71)$(EEXT): src/$(TARGET71).o
+	$(CC) $< $(LIBS) -o src/$(TARGET71)$(EEXT) $(LDFLAGS)
+$(TARGET71): src/$(TARGET71)$(EEXT)
+$(TARGET72)$(OEXT): src/$(TARGET72).c
+	$(CC) -c  $< -o src/$(TARGET72)$(OEXT) $(CPPFLAGS)
+src/$(TARGET72)$(EEXT): src/$(TARGET72).o
+	$(CC) $< $(LIBS) -o src/$(TARGET72)$(EEXT) $(LDFLAGS)
+$(TARGET72): src/$(TARGET72)$(EEXT)
+$(TARGET73)$(OEXT): src/$(TARGET73).c
+	$(CC) -c  $< -o src/$(TARGET73)$(OEXT) $(CPPFLAGS)
+src/$(TARGET73)$(EEXT): src/$(TARGET73).o
+	$(CC) $< $(LIBS) -o src/$(TARGET73)$(EEXT) $(LDFLAGS)
+$(TARGET73): src/$(TARGET73)$(EEXT)
+$(TARGET74)$(OEXT): src/$(TARGET74).c
+	$(CC) -c  $< -o src/$(TARGET74)$(OEXT) $(CPPFLAGS)
+src/$(TARGET74)$(EEXT): src/$(TARGET74).o
+	$(CC) $< $(LIBS) -o src/$(TARGET74)$(EEXT) $(LDFLAGS)
+$(TARGET74): src/$(TARGET74)$(EEXT)
+$(TARGET75)$(OEXT): src/$(TARGET75).c
+	$(CC) -c  $< -o src/$(TARGET75)$(OEXT) $(CPPFLAGS)
+src/$(TARGET75)$(EEXT): src/$(TARGET75).o
+	$(CC) $< $(LIBS) -o src/$(TARGET75)$(EEXT) $(LDFLAGS)
+$(TARGET75): src/$(TARGET75)$(EEXT)
+$(TARGET76)$(OEXT): src/$(TARGET76).c
+	$(CC) -c  $< -o src/$(TARGET76)$(OEXT) $(CPPFLAGS)
+src/$(TARGET76)$(EEXT): src/$(TARGET76).o
+	$(CC) $< $(LIBS) -o src/$(TARGET76)$(EEXT) $(LDFLAGS)
+$(TARGET76): src/$(TARGET76)$(EEXT)
+$(TARGET77)$(OEXT): src/$(TARGET77).c
+	$(CC) -c  $< -o src/$(TARGET77)$(OEXT) $(CPPFLAGS)
+src/$(TARGET77)$(EEXT): src/$(TARGET77).o
+	$(CC) $< $(LIBS) -o src/$(TARGET77)$(EEXT) $(LDFLAGS)
+$(TARGET77): src/$(TARGET77)$(EEXT)
+$(TARGET78)$(OEXT): src/$(TARGET78).c
+	$(CC) -c  $< -o src/$(TARGET78)$(OEXT) $(CPPFLAGS)
+src/$(TARGET78)$(EEXT): src/$(TARGET78).o
+	$(CC) $< $(LIBS) -o src/$(TARGET78)$(EEXT) $(LDFLAGS)
+$(TARGET78): src/$(TARGET78)$(EEXT)
+$(TARGET79)$(OEXT): src/$(TARGET79).c
+	$(CC) -c  $< -o src/$(TARGET79)$(OEXT) $(CPPFLAGS)
+src/$(TARGET79)$(EEXT): src/$(TARGET79).o
+	$(CC) $< $(LIBS) -o src/$(TARGET79)$(EEXT) $(LDFLAGS)
+$(TARGET79): src/$(TARGET79)$(EEXT)
+$(TARGET80)$(OEXT): src/$(TARGET80).c
+	$(CC) -c  $< -o src/$(TARGET80)$(OEXT) $(CPPFLAGS)
+src/$(TARGET80)$(EEXT): src/$(TARGET80).o
+	$(CC) $< $(LIBS) -o src/$(TARGET80)$(EEXT) $(LDFLAGS)
+$(TARGET80): src/$(TARGET80)$(EEXT)
+$(TARGET81)$(OEXT): src/$(TARGET81).c
+	$(CC) -c  $< -o src/$(TARGET81)$(OEXT) $(CPPFLAGS)
+src/$(TARGET81)$(EEXT): src/$(TARGET81).o
+	$(CC) $< $(LIBS) -o src/$(TARGET81)$(EEXT) $(LDFLAGS)
+$(TARGET81): src/$(TARGET81)$(EEXT)
+$(TARGET82)$(OEXT): src/$(TARGET82).c
+	$(CC) -c  $< -o src/$(TARGET82)$(OEXT) $(CPPFLAGS)
+src/$(TARGET82)$(EEXT): src/$(TARGET82).o
+	$(CC) $< $(LIBS) -o src/$(TARGET82)$(EEXT) $(LDFLAGS)
+$(TARGET82): src/$(TARGET82)$(EEXT)
+$(TARGET83)$(OEXT): src/$(TARGET83).c
+	$(CC) -c  $< -o src/$(TARGET83)$(OEXT) $(CPPFLAGS)
+src/$(TARGET83)$(EEXT): src/$(TARGET83).o
+	$(CC) $< $(LIBS) -o src/$(TARGET83)$(EEXT) $(LDFLAGS)
+$(TARGET83): src/$(TARGET83)$(EEXT)
+$(TARGET84)$(OEXT): src/$(TARGET84).c
+	$(CC) -c  $< -o src/$(TARGET84)$(OEXT) $(CPPFLAGS)
+src/$(TARGET84)$(EEXT): src/$(TARGET84).o
+	$(CC) $< $(LIBS) -o src/$(TARGET84)$(EEXT) $(LDFLAGS)
+$(TARGET84): src/$(TARGET84)$(EEXT)
+$(TARGET85)$(OEXT): src/$(TARGET85).c
+	$(CC) -c  $< -o src/$(TARGET85)$(OEXT) $(CPPFLAGS)
+src/$(TARGET85)$(EEXT): src/$(TARGET85).o
+	$(CC) $< $(LIBS) -o src/$(TARGET85)$(EEXT) $(LDFLAGS)
+$(TARGET85): src/$(TARGET85)$(EEXT)
+$(TARGET86)$(OEXT): src/$(TARGET86).c
+	$(CC) -c  $< -o src/$(TARGET86)$(OEXT) $(CPPFLAGS)
+src/$(TARGET86)$(EEXT): src/$(TARGET86).o
+	$(CC) $< $(LIBS) -o src/$(TARGET86)$(EEXT) $(LDFLAGS)
+$(TARGET86): src/$(TARGET86)$(EEXT)
+$(TARGET87)$(OEXT): src/$(TARGET87).c
+	$(CC) -c  $< -o src/$(TARGET87)$(OEXT) $(CPPFLAGS)
+src/$(TARGET87)$(EEXT): src/$(TARGET87).o
+	$(CC) $< $(LIBS) -o src/$(TARGET87)$(EEXT) $(LDFLAGS)
+$(TARGET87): src/$(TARGET87)$(EEXT)
+$(TARGET88)$(OEXT): src/$(TARGET88).c
+	$(CC) -c  $< -o src/$(TARGET88)$(OEXT) $(CPPFLAGS)
+src/$(TARGET88)$(EEXT): src/$(TARGET88).o
+	$(CC) $< $(LIBS) -o src/$(TARGET88)$(EEXT) $(LDFLAGS)
+$(TARGET88): src/$(TARGET88)$(EEXT)
+$(TARGET89)$(OEXT): src/$(TARGET89).c
+	$(CC) -c  $< -o src/$(TARGET89)$(OEXT) $(CPPFLAGS)
+src/$(TARGET89)$(EEXT): src/$(TARGET89).o
+	$(CC) $< $(LIBS) -o src/$(TARGET89)$(EEXT) $(LDFLAGS)
+$(TARGET89): src/$(TARGET89)$(EEXT)
+$(TARGET90)$(OEXT): src/$(TARGET90).c
+	$(CC) -c  $< -o src/$(TARGET90)$(OEXT) $(CPPFLAGS)
+src/$(TARGET90)$(EEXT): src/$(TARGET90).o
+	$(CC) $< $(LIBS) -o src/$(TARGET90)$(EEXT) $(LDFLAGS)
+$(TARGET90): src/$(TARGET90)$(EEXT)
+$(TARGET91)$(OEXT): src/$(TARGET91).c
+	$(CC) -c  $< -o src/$(TARGET91)$(OEXT) $(CPPFLAGS)
+src/$(TARGET91)$(EEXT): src/$(TARGET91).o
+	$(CC) $< $(LIBS) -o src/$(TARGET91)$(EEXT) $(LDFLAGS)
+$(TARGET91): src/$(TARGET91)$(EEXT)
+$(TARGET92)$(OEXT): src/$(TARGET92).c
+	$(CC) -c  $< -o src/$(TARGET92)$(OEXT) $(CPPFLAGS)
+src/$(TARGET92)$(EEXT): src/$(TARGET92).o
+	$(CC) $< $(LIBS) -o src/$(TARGET92)$(EEXT) $(LDFLAGS)
+$(TARGET92): src/$(TARGET92)$(EEXT)
+$(TARGET93)$(OEXT): src/$(TARGET93).c
+	$(CC) -c  $< -o src/$(TARGET93)$(OEXT) $(CPPFLAGS)
+src/$(TARGET93)$(EEXT): src/$(TARGET93).o
+	$(CC) $< $(LIBS) -o src/$(TARGET93)$(EEXT) $(LDFLAGS)
+$(TARGET93): src/$(TARGET93)$(EEXT)
+$(TARGET94)$(OEXT): src/$(TARGET94).c
+	$(CC) -c  $< -o src/$(TARGET94)$(OEXT) $(CPPFLAGS)
+src/$(TARGET94)$(EEXT): src/$(TARGET94).o
+	$(CC) $< $(LIBS) -o src/$(TARGET94)$(EEXT) $(LDFLAGS)
+$(TARGET94): src/$(TARGET94)$(EEXT)
+$(TARGET95)$(OEXT): src/$(TARGET95).c
+	$(CC) -c  $< -o src/$(TARGET95)$(OEXT) $(CPPFLAGS)
+src/$(TARGET95)$(EEXT): src/$(TARGET95).o
+	$(CC) $< $(LIBS) -o src/$(TARGET95)$(EEXT) $(LDFLAGS)
+$(TARGET95): src/$(TARGET95)$(EEXT)
+$(TARGET96)$(OEXT): src/$(TARGET96).c
+	$(CC) -c  $< -o src/$(TARGET96)$(OEXT) $(CPPFLAGS)
+src/$(TARGET96)$(EEXT): src/$(TARGET96).o
+	$(CC) $< $(LIBS) -o src/$(TARGET96)$(EEXT) $(LDFLAGS)
+$(TARGET96): src/$(TARGET96)$(EEXT)
+$(TARGET97)$(OEXT): src/$(TARGET97).c
+	$(CC) -c  $< -o src/$(TARGET97)$(OEXT) $(CPPFLAGS)
+src/$(TARGET97)$(EEXT): src/$(TARGET97).o
+	$(CC) $< $(LIBS) -o src/$(TARGET97)$(EEXT) $(LDFLAGS)
+$(TARGET97): src/$(TARGET97)$(EEXT)
+$(TARGET98)$(OEXT): src/$(TARGET98).c
+	$(CC) -c  $< -o src/$(TARGET98)$(OEXT) $(CPPFLAGS)
+src/$(TARGET98)$(EEXT): src/$(TARGET98).o
+	$(CC) $< $(LIBS) -o src/$(TARGET98)$(EEXT) $(LDFLAGS)
+$(TARGET98): src/$(TARGET98)$(EEXT)
+$(TARGET99)$(OEXT): src/$(TARGET99).c
+	$(CC) -c  $< -o src/$(TARGET99)$(OEXT) $(CPPFLAGS)
+src/$(TARGET99)$(EEXT): src/$(TARGET99).o
+	$(CC) $< $(LIBS) -o src/$(TARGET99)$(EEXT) $(LDFLAGS)
+$(TARGET99): src/$(TARGET99)$(EEXT)
+$(TARGET100)$(OEXT): src/$(TARGET100).c
+	$(CC) -c  $< -o src/$(TARGET100)$(OEXT) $(CPPFLAGS)
+src/$(TARGET100)$(EEXT): src/$(TARGET100).o
+	$(CC) $< $(LIBS) -o src/$(TARGET100)$(EEXT) $(LDFLAGS)
+$(TARGET100): src/$(TARGET100)$(EEXT)
+$(TARGET101)$(OEXT): src/$(TARGET101).c
+	$(CC) -c  $< -o src/$(TARGET101)$(OEXT) $(CPPFLAGS)
+src/$(TARGET101)$(EEXT): src/$(TARGET101).o
+	$(CC) $< $(LIBS) -o src/$(TARGET101)$(EEXT) $(LDFLAGS)
+$(TARGET101): src/$(TARGET101)$(EEXT)
+$(TARGET102)$(OEXT): src/$(TARGET102).c
+	$(CC) -c  $< -o src/$(TARGET102)$(OEXT) $(CPPFLAGS)
+src/$(TARGET102)$(EEXT): src/$(TARGET102).o
+	$(CC) $< $(LIBS) -o src/$(TARGET102)$(EEXT) $(LDFLAGS)
+$(TARGET102): src/$(TARGET102)$(EEXT)
+$(TARGET103)$(OEXT): src/$(TARGET103).c
+	$(CC) -c  $< -o src/$(TARGET103)$(OEXT) $(CPPFLAGS)
+src/$(TARGET103)$(EEXT): src/$(TARGET103).o
+	$(CC) $< $(LIBS) -o src/$(TARGET103)$(EEXT) $(LDFLAGS)
+$(TARGET103): src/$(TARGET103)$(EEXT)
+$(TARGET104)$(OEXT): src/$(TARGET104).c
+	$(CC) -c  $< -o src/$(TARGET104)$(OEXT) $(CPPFLAGS)
+src/$(TARGET104)$(EEXT): src/$(TARGET104).o
+	$(CC) $< $(LIBS) -o src/$(TARGET104)$(EEXT) $(LDFLAGS)
+$(TARGET104): src/$(TARGET104)$(EEXT)
+$(TARGET105)$(OEXT): src/$(TARGET105).c
+	$(CC) -c  $< -o src/$(TARGET105)$(OEXT) $(CPPFLAGS)
+src/$(TARGET105)$(EEXT): src/$(TARGET105).o
+	$(CC) $< $(LIBS) -o src/$(TARGET105)$(EEXT) $(LDFLAGS)
+$(TARGET105): src/$(TARGET105)$(EEXT)
+$(TARGET106)$(OEXT): src/$(TARGET106).c
+	$(CC) -c  $< -o src/$(TARGET106)$(OEXT) $(CPPFLAGS)
+src/$(TARGET106)$(EEXT): src/$(TARGET106).o
+	$(CC) $< $(LIBS) -o src/$(TARGET106)$(EEXT) $(LDFLAGS)
+$(TARGET106): src/$(TARGET106)$(EEXT)
+$(TARGET108)$(OEXT): src/$(TARGET108).c
+	$(CC) -c  $< -o src/$(TARGET108)$(OEXT) $(CPPFLAGS)
+src/$(TARGET108)$(EEXT): src/$(TARGET108).o
+	$(CC) $< $(LIBS) -o src/$(TARGET108)$(EEXT) $(LDFLAGS)
+$(TARGET108): src/$(TARGET108)$(EEXT)
+$(TARGET109)$(OEXT): src/$(TARGET109).c
+	$(CC) -c  $< -o src/$(TARGET109)$(OEXT) $(CPPFLAGS)
+src/$(TARGET109)$(EEXT): src/$(TARGET109).o
+	$(CC) $< $(LIBS) -o src/$(TARGET109)$(EEXT) $(LDFLAGS)
+$(TARGET109): src/$(TARGET109)$(EEXT)
+$(TARGET110)$(OEXT): src/$(TARGET110).c
+	$(CC) -c  $< -o src/$(TARGET110)$(OEXT) $(CPPFLAGS)
+src/$(TARGET110)$(EEXT): src/$(TARGET110).o
+	$(CC) $< $(LIBS) -o src/$(TARGET110)$(EEXT) $(LDFLAGS)
+$(TARGET110): src/$(TARGET110)$(EEXT)
+$(TARGET111)$(OEXT): src/$(TARGET111).c
+	$(CC) -c  $< -o src/$(TARGET111)$(OEXT) $(CPPFLAGS)
+src/$(TARGET111)$(EEXT): src/$(TARGET111).o
+	$(CC) $< $(LIBS) -o src/$(TARGET111)$(EEXT) $(LDFLAGS)
+$(TARGET111): src/$(TARGET111)$(EEXT)
+$(TARGET112)$(OEXT): src/$(TARGET112).c
+	$(CC) -c  $< -o src/$(TARGET112)$(OEXT) $(CPPFLAGS)
+src/$(TARGET112)$(EEXT): src/$(TARGET112).o
+	$(CC) $< $(LIBS) -o src/$(TARGET112)$(EEXT) $(LDFLAGS)
+$(TARGET112): src/$(TARGET112)$(EEXT)
+$(TARGET113)$(OEXT): src/$(TARGET113).c
+	$(CC) -c  $< -o src/$(TARGET113)$(OEXT) $(CPPFLAGS)
+src/$(TARGET113)$(EEXT): src/$(TARGET113).o
+	$(CC) $< $(LIBS) -o src/$(TARGET113)$(EEXT) $(LDFLAGS)
+$(TARGET113): src/$(TARGET113)$(EEXT)
+$(TARGET114)$(OEXT): src/$(TARGET114).c
+	$(CC) -c  $< -o src/$(TARGET114)$(OEXT) $(CPPFLAGS)
+src/$(TARGET114)$(EEXT): src/$(TARGET114).o
+	$(CC) $< $(LIBS) -o src/$(TARGET114)$(EEXT) $(LDFLAGS)
+$(TARGET114): src/$(TARGET114)$(EEXT)
+src/analysis$(OEXT): src/analysis.c src/analysis.h src/defines.h
+	$(CC) -c   $< -o src/analysis$(OEXT) $(CPPFLAGS)
+src/useanalysis$(EEXT): src/useanalysis.o src/analysis.o
+	$(CC) $? $(LIBS) -o src/analysis.exe $(LDFLAGS)
+useanalysis: src/useanalysis$(EEXT)
+analysis: useanalysis
+install: all analysis
+	mv $(RMTARGETS) bin
+.PHONY: clean distclean useanalysis cleananalysis cleanuseanalysis analysis
+cleananalysis:
+	$(RM) src/analysis.o src/useanalysis.o src/analysis.exe
+useanalysis: src/useanalysis$(EEXT)
+cleanuseanalysis: cleananalysis
+clean: cleananalysis
+	$(RM) $(OBJ) $(RMTARGETS)
+distclean: clean
+	$(RM) bin/* Makefile* *.fit *.fits *.csv *.ssv *.tsv *.dat *.txt *.log
