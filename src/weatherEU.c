@@ -17,7 +17,7 @@ int main(int argc, char **argv){
         show_conversions(ftemperature, ctemperature);
         if( (ctemperature>14) && (ctemperature<33) )
         {
-            printf("My, but it’s nice weather outside\n");
+            printf("My, but it's nice weather outside\n");
         } else {
             printf("Could be better weather outside\n");
         }
@@ -26,7 +26,7 @@ int main(int argc, char **argv){
         return 0;
     } else {
         puts("This program takes one input parameter");
-        fprintf(stderr, "usage:%s <temperature (°C)>\n", argv[0]);
+        fprintf(stderr, "usage:%s <temperature (degC)>\n", argv[0]);
         return 1;
     }
 }

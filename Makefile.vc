@@ -1,0 +1,381 @@
+LDFLAGS =
+LIBS = 
+INCS = 
+CXXINCS =  
+CXXFLAGS = 
+CFLAGS = 
+RM = del /F /Q 
+MV = move /Y 
+CP = copy /Y /B 
+CXX  = cl
+CC   = cl
+LD   = link
+EEXT   = .exe
+OEXT   = .obj
+SRC = $(SRC:src/*.c=.obj)
+OBJ = *.obj
+CPPFLAGS = /W4 /I src
+LDFLAGS = 
+TARGET0 = 2darray
+TARGET1 = 2darrayfun
+TARGET2 = alert2
+TARGET3 = alert
+TARGET4 = AllyGally
+TARGET5 = altnames
+TARGET6 = analysis
+TARGET7 = ansi
+TARGET8 = ascii
+TARGET9 = assessed
+TARGET10 = assignstring
+TARGET11 = averageof3
+TARGET12 = blowup1
+TARGET13 = blowup2
+TARGET14 = blowup3
+TARGET15 = blowupvc
+TARGET16 = bomber
+TARGET17 = bonus
+TARGET18 = callex
+TARGET19 = callval
+TARGET20 = charloop
+TARGET21 = charme
+TARGET22 = charred
+TARGET23 = charstats
+TARGET24 = color
+TARGET25 = continue
+TARGET26 = countdwn
+TARGET27 = countlines
+TARGET28 = couplenames
+TARGET29 = crash1
+TARGET30 = dentist
+TARGET31 = dumpfunc
+TARGET32 = duo
+TARGET33 = dynamic1
+TARGET34 = favkey1
+TARGET35 = fgetline
+TARGET36 = fibonacci
+TARGET37 = first
+TARGET38 = forreal
+TARGET39 = genie1
+TARGET40 = genie2
+TARGET41 = genie3
+TARGET42 = genie
+TARGET43 = getline
+TARGET44 = greater
+TARGET45 = greater-orig
+TARGET46 = height
+TARGET47 = hellof
+TARGET48 = hellomsf
+TARGET49 = htest
+TARGET50 = hundred
+TARGET51 = insult2
+TARGET52 = insult3
+TARGET53 = insults
+TARGET54 = isanumber
+TARGET55 = jupiter
+TARGET56 = kitty2
+TARGET57 = kitty3
+TARGET58 = kitty
+TARGET59 = lardo
+TARGET60 = lardoxx
+TARGET61 = largest
+TARGET62 = letters
+TARGET63 = literals
+TARGET64 = lobby3
+TARGET65 = lobby
+TARGET66 = madlib2
+TARGET67 = madlib
+TARGET68 = main
+TARGET69 = Matuselah
+TARGET70 = meals2
+TARGET71 = meals
+TARGET72 = methus2
+TARGET73 = methus3
+TARGET74 = methus4
+TARGET75 = methus5
+TARGET76 = methus5-stdin
+TARGET77 = nested
+TARGET78 = ollyolly
+TARGET79 = pellets
+TARGET80 = pension
+TARGET81 = printout
+TARGET82 = puthchars
+TARGET83 = random_num_list
+TARGET84 = rangeloop
+TARGET85 = rangesteploop
+TARGET86 = readdynamic
+TARGET87 = readfile
+TARGET88 = scandir
+TARGET89 = scanfile
+TARGET90 = scanning2
+TARGET91 = scanning
+TARGET92 = showchars
+TARGET93 = simple
+TARGET94 = simplecolor
+TARGET95 = sizes
+TARGET96 = strings
+TARGET97 = structures
+TARGET98 = sums
+TARGET99 = taxes
+TARGET100 = testscanf
+TARGET101 = teststderr
+TARGET102 = teststrigvec
+TARGET103 = testtable
+TARGET104 = threenames
+TARGET105 = typer1
+TARGET106 = ui
+TARGET107 = useanalysis
+TARGET108 = wc
+TARGET109 = weather2
+TARGET110 = weather
+TARGET111 = weatherEU
+TARGET112 = which
+TARGET113 = words2lines
+TARGET114 = writefile
+TARGETS = writefile words2lines which weatherEU weather weather2 wc useanalysis ui typer1 threenames testtable teststrigvec teststderr testscanf taxes sums structures strings sizes simplecolor simple showchars scanning scanning2 scanfile scandir readfile readdynamic rangesteploop rangeloop random_num_list puthchars printout pension pellets ollyolly nested methus5-stdin methus5 methus4 methus3 methus2 meals meals2 Matuselah main madlib madlib2 lobby lobby3 literals letters largest lardoxx lardo kitty kitty3 kitty2 jupiter isanumber insults insult3 insult2 hundred htest hellomsf hellof height greater-orig greater getline genie genie3 genie2 genie1 forreal first fibonacci fgetline favkey1 dynamic1 duo dumpfunc dentist crash1 couplenames countlines countdwn continue color charstats charred charme charloop callval callex bonus bomber blowupvc blowup3 blowup2 blowup1 averageof3 assignstring assessed ascii ansi analysis altnames AllyGally alert alert2 2darrayfun 2darray
+RMTARGETS = writefile.exe words2lines.exe which.exe weatherEU.exe weather.exe weather2.exe wc.exe useanalysis.exe ui.exe typer1.exe threenames.exe testtable.exe teststrigvec.exe teststderr.exe testscanf.exe taxes.exe sums.exe structures.exe strings.exe sizes.exe simplecolor.exe simple.exe showchars.exe scanning.exe scanning2.exe scanfile.exe scandir.exe readfile.exe readdynamic.exe rangesteploop.exe rangeloop.exe random_num_list.exe puthchars.exe printout.exe pension.exe pellets.exe ollyolly.exe nested.exe methus5-stdin.exe methus5.exe methus4.exe methus3.exe methus2.exe meals.exe meals2.exe Matuselah.exe main.exe madlib.exe madlib2.exe lobby.exe lobby3.exe literals.exe letters.exe largest.exe lardoxx.exe lardo.exe kitty.exe kitty3.exe kitty2.exe jupiter.exe isanumber.exe insults.exe insult3.exe insult2.exe hundred.exe htest.exe hellomsf.exe hellof.exe height.exe greater-orig.exe greater.exe getline.exe genie.exe genie3.exe genie2.exe genie1.exe forreal.exe first.exe fibonacci.exe fgetline.exe favkey1.exe dynamic1.exe duo.exe dumpfunc.exe dentist.exe crash1.exe couplenames.exe countlines.exe countdwn.exe continue.exe color.exe charstats.exe charred.exe charme.exe charloop.exe callval.exe callex.exe bonus.exe bomber.exe blowupvc.exe blowup3.exe blowup2.exe blowup1.exe averageof3.exe assignstring.exe assessed.exe ascii.exe ansi.exe analysis.exe altnames.exe AllyGally.exe alert.exe alert2.exe 2darrayfun.exe 2darray.exe
+CPTARGETS = writefile.exe+words2lines.exe+which.exe+weatherEU.exe+weather.exe+weather2.exe+wc.exe+useanalysis.exe+ui.exe+typer1.exe+threenames.exe+testtable.exe+teststrigvec.exe+teststderr.exe+testscanf.exe+taxes.exe+sums.exe+structures.exe+strings.exe+sizes.exe+simplecolor.exe+simple.exe+showchars.exe+scanning.exe+scanning2.exe+scanfile.exe+scandir.exe+readfile.exe+readdynamic.exe+rangesteploop.exe+rangeloop.exe+random_num_list.exe+puthchars.exe+printout.exe+pension.exe+pellets.exe+ollyolly.exe+nested.exe+methus5-stdin.exe+methus5.exe+methus4.exe+methus3.exe+methus2.exe+meals.exe+meals2.exe+Matuselah.exe+main.exe+madlib.exe+madlib2.exe+lobby.exe+lobby3.exe+literals.exe+letters.exe+largest.exe+lardoxx.exe+lardo.exe+kitty.exe+kitty3.exe+kitty2.exe+jupiter.exe+isanumber.exe+insults.exe+insult3.exe+insult2.exe+hundred.exe+htest.exe+hellomsf.exe+hellof.exe+height.exe+greater-orig.exe+greater.exe+getline.exe+genie.exe+genie3.exe+genie2.exe+genie1.exe+forreal.exe+first.exe+fibonacci.exe+fgetline.exe+favkey1.exe+dynamic1.exe+duo.exe+dumpfunc.exe+dentist.exe+crash1.exe+couplenames.exe+countlines.exe+countdwn.exe+continue.exe+color.exe+charstats.exe+charred.exe+charme.exe+charloop.exe+callval.exe+callex.exe+bonus.exe+bomber.exe+blowupvc.exe+blowup3.exe+blowup2.exe+blowup1.exe+averageof3.exe+assignstring.exe+assessed.exe+ascii.exe+ansi.exe+analysis.exe+altnames.exe+AllyGally.exe+alert.exe+alert2.exe+2darrayfun.exe+2darray.exe+
+all: $(RMTARGETS)
+$(TARGET0)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET0).c  /link  /out:2darray.exe $(LDFLAGS)
+$(TARGET1)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET1).c  /link  /out:2darrayfun.exe $(LDFLAGS)
+$(TARGET2)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET2).c  /link  /out:alert2.exe $(LDFLAGS)
+$(TARGET3)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET3).c  /link  /out:alert.exe $(LDFLAGS)
+$(TARGET4)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET4).c  /link  /out:AllyGally.exe $(LDFLAGS)
+$(TARGET5)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET5).c  /link  /out:altnames.exe $(LDFLAGS)
+$(TARGET7)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET7).c  /link  /out:ansi.exe $(LDFLAGS)
+$(TARGET8)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET8).c  /link  /out:ascii.exe $(LDFLAGS)
+$(TARGET9)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET9).c  /link  /out:assessed.exe $(LDFLAGS)
+$(TARGET10)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET10).c  /link  /out:assignstring.exe $(LDFLAGS)
+$(TARGET11)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET11).c  /link  /out:averageof3.exe $(LDFLAGS)
+$(TARGET12)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET12).c  /link  /out:blowup1.exe $(LDFLAGS)
+$(TARGET13)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET13).c  /link  /out:blowup2.exe $(LDFLAGS)
+$(TARGET14)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET14).c  /link  /out:blowup3.exe $(LDFLAGS)
+$(TARGET15)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET15).c  /link  /out:blowupvc.exe $(LDFLAGS)
+$(TARGET16)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET16).c  /link  /out:bomber.exe $(LDFLAGS)
+$(TARGET17)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET17).c  /link  /out:bonus.exe $(LDFLAGS)
+$(TARGET18)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET18).c  /link  /out:callex.exe $(LDFLAGS)
+$(TARGET19)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET19).c  /link  /out:callval.exe $(LDFLAGS)
+$(TARGET20)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET20).c  /link  /out:charloop.exe $(LDFLAGS)
+$(TARGET21)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET21).c  /link  /out:charme.exe $(LDFLAGS)
+$(TARGET22)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET22).c  /link  /out:charred.exe $(LDFLAGS)
+$(TARGET23)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET23).c  /link  /out:charstats.exe $(LDFLAGS)
+$(TARGET24)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET24).c  /link  /out:color.exe $(LDFLAGS)
+$(TARGET25)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET25).c  /link  /out:continue.exe $(LDFLAGS)
+$(TARGET26)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET26).c  /link  /out:countdwn.exe $(LDFLAGS)
+$(TARGET27)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET27).c  /link  /out:countlines.exe $(LDFLAGS)
+$(TARGET28)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET28).c  /link  /out:couplenames.exe $(LDFLAGS)
+$(TARGET29)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET29).c  /link  /out:crash1.exe $(LDFLAGS)
+$(TARGET30)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET30).c  /link  /out:dentist.exe $(LDFLAGS)
+$(TARGET31)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET31).c  /link  /out:dumpfunc.exe $(LDFLAGS)
+$(TARGET32)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET32).c  /link  /out:duo.exe $(LDFLAGS)
+$(TARGET33)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET33).c  /link  /out:dynamic1.exe $(LDFLAGS)
+$(TARGET34)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET34).c  /link  /out:favkey1.exe $(LDFLAGS)
+$(TARGET35)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET35).c  /link  /out:fgetline.exe $(LDFLAGS)
+$(TARGET36)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET36).c  /link  /out:fibonacci.exe $(LDFLAGS)
+$(TARGET37)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET37).c  /link  /out:first.exe $(LDFLAGS)
+$(TARGET38)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET38).c  /link  /out:forreal.exe $(LDFLAGS)
+$(TARGET39)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET39).c  /link  /out:genie1.exe $(LDFLAGS)
+$(TARGET40)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET40).c  /link  /out:genie2.exe $(LDFLAGS)
+$(TARGET41)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET41).c  /link  /out:genie3.exe $(LDFLAGS)
+$(TARGET42)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET42).c  /link  /out:genie.exe $(LDFLAGS)
+$(TARGET43)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET43).c  /link  /out:getline.exe $(LDFLAGS)
+$(TARGET44)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET44).c  /link  /out:greater.exe $(LDFLAGS)
+$(TARGET45)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET45).c  /link  /out:greater-orig.exe $(LDFLAGS)
+$(TARGET46)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET46).c  /link  /out:height.exe $(LDFLAGS)
+$(TARGET47)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET47).c  /link  /out:hellof.exe $(LDFLAGS)
+$(TARGET48)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET48).c  /link  /out:hellomsf.exe $(LDFLAGS)
+$(TARGET49)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET49).c  /link  /out:htest.exe $(LDFLAGS)
+$(TARGET50)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET50).c  /link  /out:hundred.exe $(LDFLAGS)
+$(TARGET51)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET51).c  /link  /out:insult2.exe $(LDFLAGS)
+$(TARGET52)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET52).c  /link  /out:insult3.exe $(LDFLAGS)
+$(TARGET53)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET53).c  /link  /out:insults.exe $(LDFLAGS)
+$(TARGET54)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET54).c  /link  /out:isanumber.exe $(LDFLAGS)
+$(TARGET55)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET55).c  /link  /out:jupiter.exe $(LDFLAGS)
+$(TARGET56)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET56).c  /link  /out:kitty2.exe $(LDFLAGS)
+$(TARGET57)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET57).c  /link  /out:kitty3.exe $(LDFLAGS)
+$(TARGET58)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET58).c  /link  /out:kitty.exe $(LDFLAGS)
+$(TARGET59)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET59).c  /link  /out:lardo.exe $(LDFLAGS)
+$(TARGET60)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET60).c  /link  /out:lardoxx.exe $(LDFLAGS)
+$(TARGET61)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET61).c  /link  /out:largest.exe $(LDFLAGS)
+$(TARGET62)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET62).c  /link  /out:letters.exe $(LDFLAGS)
+$(TARGET63)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET63).c  /link  /out:literals.exe $(LDFLAGS)
+$(TARGET64)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET64).c  /link  /out:lobby3.exe $(LDFLAGS)
+$(TARGET65)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET65).c  /link  /out:lobby.exe $(LDFLAGS)
+$(TARGET66)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET66).c  /link  /out:madlib2.exe $(LDFLAGS)
+$(TARGET67)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET67).c  /link  /out:madlib.exe $(LDFLAGS)
+$(TARGET68)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET68).c  /link  /out:main.exe $(LDFLAGS)
+$(TARGET69)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET69).c  /link  /out:Matuselah.exe $(LDFLAGS)
+$(TARGET70)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET70).c  /link  /out:meals2.exe $(LDFLAGS)
+$(TARGET71)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET71).c  /link  /out:meals.exe $(LDFLAGS)
+$(TARGET72)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET72).c  /link  /out:methus2.exe $(LDFLAGS)
+$(TARGET73)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET73).c  /link  /out:methus3.exe $(LDFLAGS)
+$(TARGET74)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET74).c  /link  /out:methus4.exe $(LDFLAGS)
+$(TARGET75)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET75).c  /link  /out:methus5.exe $(LDFLAGS)
+$(TARGET76)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET76).c  /link  /out:methus5-stdin.exe $(LDFLAGS)
+$(TARGET77)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET77).c  /link  /out:nested.exe $(LDFLAGS)
+$(TARGET78)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET78).c  /link  /out:ollyolly.exe $(LDFLAGS)
+$(TARGET79)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET79).c  /link  /out:pellets.exe $(LDFLAGS)
+$(TARGET80)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET80).c  /link  /out:pension.exe $(LDFLAGS)
+$(TARGET81)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET81).c  /link  /out:printout.exe $(LDFLAGS)
+$(TARGET82)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET82).c  /link  /out:puthchars.exe $(LDFLAGS)
+$(TARGET83)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET83).c  /link  /out:random_num_list.exe $(LDFLAGS)
+$(TARGET84)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET84).c  /link  /out:rangeloop.exe $(LDFLAGS)
+$(TARGET85)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET85).c  /link  /out:rangesteploop.exe $(LDFLAGS)
+$(TARGET86)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET86).c  /link  /out:readdynamic.exe $(LDFLAGS)
+$(TARGET87)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET87).c  /link  /out:readfile.exe $(LDFLAGS)
+$(TARGET88)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET88).c  /link  /out:scandir.exe $(LDFLAGS)
+$(TARGET89)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET89).c  /link  /out:scanfile.exe $(LDFLAGS)
+$(TARGET90)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET90).c  /link  /out:scanning2.exe $(LDFLAGS)
+$(TARGET91)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET91).c  /link  /out:scanning.exe $(LDFLAGS)
+$(TARGET92)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET92).c  /link  /out:showchars.exe $(LDFLAGS)
+$(TARGET93)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET93).c  /link  /out:simple.exe $(LDFLAGS)
+$(TARGET94)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET94).c  /link  /out:simplecolor.exe $(LDFLAGS)
+$(TARGET95)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET95).c  /link  /out:sizes.exe $(LDFLAGS)
+$(TARGET96)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET96).c  /link  /out:strings.exe $(LDFLAGS)
+$(TARGET97)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET97).c  /link  /out:structures.exe $(LDFLAGS)
+$(TARGET98)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET98).c  /link  /out:sums.exe $(LDFLAGS)
+$(TARGET99)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET99).c  /link  /out:taxes.exe $(LDFLAGS)
+$(TARGET100)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET100).c  /link  /out:testscanf.exe $(LDFLAGS)
+$(TARGET101)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET101).c  /link  /out:teststderr.exe $(LDFLAGS)
+$(TARGET102)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET102).c  /link  /out:teststrigvec.exe $(LDFLAGS)
+$(TARGET103)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET103).c  /link  /out:testtable.exe $(LDFLAGS)
+$(TARGET104)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET104).c  /link  /out:threenames.exe $(LDFLAGS)
+$(TARGET105)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET105).c  /link  /out:typer1.exe $(LDFLAGS)
+$(TARGET106)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET106).c  /link  /out:ui.exe $(LDFLAGS)
+analysis$(EEXT): useanalysis$(EEXT)
+	$(CP) useanalysis$(EEXT) analysis$(EEXT)
+analysis$(OEXT): src/analysis.c
+	$(CC) $(CPPFLAGS) src/analysis.c  /c  
+$(TARGET107)$(OEXT): src/useanalysis.c
+	$(CC) $(CPPFLAGS) src/$(TARGET107).c  /c  
+$(TARGET107)$(EEXT): analysis$(OEXT) $(TARGET107)$(OEXT)
+	$(LD) $(TARGET107)$(OEXT) analysis$(OEXT)  /out:useanalysis$(EEXT) $(LDFLAGS)
+$(TARGET108)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET108).c  /link  /out:wc.exe $(LDFLAGS)
+$(TARGET109)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET109).c  /link  /out:weather2.exe $(LDFLAGS)
+$(TARGET110)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET110).c  /link  /out:weather.exe $(LDFLAGS)
+$(TARGET111)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET111).c  /link  /out:weatherEU.exe $(LDFLAGS)
+$(TARGET112)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET112).c  /link  /out:which.exe $(LDFLAGS)
+$(TARGET113)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET113).c  /link  /out:words2lines.exe $(LDFLAGS)
+$(TARGET114)$(EEXT):
+	$(CC) $(CPPFLAGS) src/$(TARGET114).c  /link  /out:writefile.exe $(LDFLAGS)
+install: all
+	$(CP) *.exe bin
+	$(CP) *.obj obj
+	$(RM) $(RMTARGETS)
+	$(RM) $(OBJ)
+.PHONY: clean
+clean:
+	$(RM) $(OBJ) $(RMTARGETS) 
+distclean: clean
+	$(RM) *$(EEXT) && $(RM) Makefile Makefile.vc
