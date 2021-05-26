@@ -8,6 +8,7 @@ FILE *ifptr;  /* define a pointer to input file */
 FILE *ofptr;  /* define a pointer to output file */
 char *str = "Test string \n";
 char es[MDIM] = "";
+char oes[MDIM] = "";
 char buff[MDIM] = "";
 int ch, i;
 unsigned int a1d[MDIM];
@@ -18,6 +19,7 @@ int main (int argc, char *argv[])
      /* argc = n of input pars, argv[0] = executable name, argv[1] - argv[n-1] cmdline pars */
      if (argc < 3) {
        fprintf(stderr,"usage %s <infilename> <outfilename> \n", argv[0]);
+       fprintf(stderr,"e.g %s infile1.typ outfile1.dat \n", argv[0]);
        exit(0);
      }
      
@@ -43,11 +45,15 @@ int main (int argc, char *argv[])
      }
      strcpy(es, argv[0]);
      fprintf(stderr, "%s: file %s correctly open for reading\n", argv[0], infilename );
-     
+     /* prepare error message */
+     fprintf(stderr, "%s: preparing error message\n", argv[0] );
      /* open output file for writing */
-     strcpy(outfilename, argv[2]);
-     strcat(es, ": Can't open file "); strcat(es, outfilename); strcat(es, " for writing \n");
+     outfilename = (char *) argv[2];
+     strcat(oes, ": Can't open file "); strcat(oes, outfilename); strcat(oes, " for writing \n"); 
+     fprintf(stderr, "%s: outfilename now containing %s for saving\n", argv[0], outfilename );
+     fprintf(stderr, "%s: before opening %s for saving\n", argv[0], outfilename );
      ofptr = fopen(outfilename,"w");
+     fprintf(stderr, "%s: after opening %s for saving\n", argv[0], outfilename );
      if ( ofptr == NULL  )  /* if can't open outfile receive an herror on opening file */
      {
        printf("Error OPENING FILE: err msg = %s\n", strerror(errno));
@@ -71,6 +77,9 @@ int main (int argc, char *argv[])
      }
      fclose(ifptr);  /* close the input file */
      /* now open read only the same output file and write the content on screen */
+    fprintf(stderr, "%s: file %s reopened read only to show the content:\n", argv[0], outfilename );
+    fprintf(stderr, "\n%s: ****************************\n", argv[0], outfilename );
+    fprintf(stderr, "%s: *** content of file %s START ***\n", argv[0], outfilename );
      freopen(outfilename,"r",ofptr);
      if ( ifptr == NULL  )  /* if can't open outfile receive an herror on opening file */
      {
@@ -91,8 +100,11 @@ int main (int argc, char *argv[])
            fprintf(stderr,"fopen() failed in file %s at line # %d", __FILE__,__LINE__);
          }
        }
+    fprintf(stderr, "\n%s: *** content of file %s END ***\n", argv[0], outfilename );
+    fprintf(stderr, "%s: ****************************\n", argv[0], outfilename );
 
        fclose(ofptr);
+    fprintf(stderr, "%s: file %s closed. End of the program. Bye. \n", argv[0], outfilename );
 
      return 0;
 }
