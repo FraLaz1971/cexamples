@@ -110,9 +110,9 @@ after you learned how to run the examples on the [terminal](https://en.wikipedia
 ###
 ## Documentation
 this method allow to generate documentation
-automatically extracting from the comments
-are added in the code, if proper tags are filled
-with the relevant content.
+extracting it automatically from the comments
+that are in the code, when the relevant content 
+is put with proper tags.
 ### to create it, type:
     doxygen
 this will generate a folder named doc
