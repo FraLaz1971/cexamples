@@ -127,9 +127,11 @@ with your web browser of choice (google-chrome, firefox, edge, ...)
 opening the file named index.html inside the doc/html (sub)folder.
 The documentation can be generated in pdf format entering at the prompt
 of your terminal in the folder doc/latex and typing
+
 	make
+
 A file named *refman.pdf* containing the auto-generated documentation.
-###
+## Content
 ### here the contained files list
     ../cexamples
     ├── bin
