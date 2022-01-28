@@ -11,7 +11,7 @@ int main()
     int job_start_age=0, job_stop_age=0, death_age=0, monthly_salary=0, contrib_rate=0; char citizen[64];
     int ycontributed, yreceived,  tot_pmonths, total_received;
     float monthly_contrib, total_paid,monthly_income; int tot_cmonths;
-    printf("enter name of Citizen:");
+    printf("enter name of Citizen (without any space):");
 
     if(scanf("%s", citizen) != 1) fprintf(stderr, "read data warning\n");
 
