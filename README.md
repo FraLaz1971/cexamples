@@ -89,22 +89,22 @@ after you learned how to run the examples on the terminal.
 	./jupiter | grep mile
 ###    //     //                 in km
 	./jupiter | grep km
-# type a char and get it in output on the screen
+### type a char and get it in output on the screen
 	./favkey1
-# read a char from a file and get it in output on the screen
+### read a char from a file and get it in output on the screen
 	./favkey1 < data/mychar.txt
-# read a char from a file and save it in output to a file named data/savedchar.txt
+### read a char from a file and save it in output to a file named data/savedchar.txt
 	./favkey1  > data/savedchar.txt
-# to compile meals2.c with make utility
+### to compile meals2.c with make utility
 	make src/meals2
-# compiling with DEBUG directive to have some debug printing
+### compiling with DEBUG directive to have some debug printing
 	rm src/meals2 src/meals2.o
 	gcc -DDEBUG -g -O2 -c   src/meals2.c -o obj/meals2.o -Iinclude
 	gcc -g -O2 -o meals2 obj/meals2.o -Llib -lm
-# to recompile without DEBUG printing
+### to recompile without DEBUG printing
 	rm -i meals2 src/meals2.o
 	make src/meals2
-# to compile on MS win using MSVC (tested with MSVC 2008 64bit)
+### to compile on MS win using MSVC (tested with MSVC 2008 64bit)
 	config/configure-win-vc.sh  > Makefile.vc
 	mingw32-make -f Makefile.vc
 ###
