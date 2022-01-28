@@ -29,10 +29,12 @@ after you learned how to run the examples on the [terminal](https://en.wikipedia
 	ls . bin
 ### to see all generated files
 	ls -alhrt *
-### generated programs are in the current dir after make
+### generated programs are in the src [directory]( https://en.wikipedia.org/wiki/Directory_(computing) ) after make
 ### or inside bin after make install
 ### look also at
 ### src/README
+we suppose you are inside the src folder with the command prompt.
+#
 	./insult2 < data/input.txt
 	cat data/input.txt
 	jdoe
