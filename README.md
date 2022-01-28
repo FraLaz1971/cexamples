@@ -116,16 +116,18 @@ with the relevant content.
     doxygen
 this will generate a folder named doc
 and inside it 2 sub-folders named html and latex
-    doc
-        ├── html
-        ├── latex
+
+	doc
+        	├── html
+        	├── latex
+
 the documentation in html format (hypertext) can be read
 with your web browser of choice (google-chrome, firefox, edge, ...)
 opening the file named index.html inside the doc/html (sub)folder.
 The documentation can be generated in pdf format entering at the prompt
 of your terminal in the folder doc/latex and typing
 	make
-A file named *refman.pdf* containing the
+A file named *refman.pdf* containing the auto-generated documentation.
 ###
 ### here the contained files list
     ../cexamples
