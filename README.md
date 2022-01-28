@@ -109,11 +109,11 @@ after you learned how to run the examples on the [terminal](https://en.wikipedia
 	mingw32-make -f Makefile.vc
 ###
 ## Documentation
-### to create it, type:
 this method allow to generate documentation
 automatically extracting from the comments
 are added in the code, if proper tags are filled
 with the relevant content.
+### to create it, type:
     doxygen
 this will generate a folder named doc
 and inside it 2 sub-folders named html and latex
