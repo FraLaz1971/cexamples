@@ -10,7 +10,7 @@ You need a text editor. Microsoft notepad is *NOT* suitable, our advice is to us
 KDE Advanced Text Editor ( [Kate](https://kate-editor.org/get-it/) ).
 The commands will be given typing few commands at the terminal. 
 An Integrated Development Environment can be used as well, but our advice is to do it
-after you learned how to run the examples on the terminal.
+after you learned how to run the examples on the [terminal](https://en.wikipedia.org/wiki/Terminal_emulator).
 ### to compile all the examples type
 	./configure
 ### then type
