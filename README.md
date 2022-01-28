@@ -7,7 +7,10 @@ First, the instruction on how to run the examples will be given for a unix-like 
 For a detailed description on how to setup the needed environment and the c compiler read
 the documentation of your operating system or ask to the local expert of your lab/company.
 You need a text editor. Microsoft notepad is *NOT* suitable, our advice is to use
-KDE Advanced Text Editor ( [Kate](https://kate-editor.org/get-it/) )
+KDE Advanced Text Editor ( [Kate](https://kate-editor.org/get-it/) ).
+The commands will be given typing few commands at the terminal. 
+An Integrated Development Environment can be used as well, but our advice is to do it
+after you learned how to run the examples on the terminal.
 ### to compile all the examples type
 	./configure
 ### then type
