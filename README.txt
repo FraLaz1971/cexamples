@@ -10,7 +10,7 @@ You need a text editor. Microsoft notepad is *NOT* suitable, our advice is to us
 KDE Advanced Text Editor ( [Kate](https://kate-editor.org/get-it/) ).
 The commands will be given typing few commands at the terminal. 
 An Integrated Development Environment can be used as well, but our advice is to do it
-after you learned how to run the examples on the terminal.
+after you learned how to run the examples on the [terminal](https://en.wikipedia.org/wiki/Terminal_emulator).
 ### to compile all the examples type
 	./configure
 ### then type
@@ -108,173 +108,210 @@ after you learned how to run the examples on the terminal.
 	config/configure-win-vc.sh  > Makefile.vc
 	mingw32-make -f Makefile.vc
 ###
-        ../cexamples
-        ├── bin
-        ├── config
-        │   ├── configurecrossi686mingw.sh
-        │   ├── configurecrossx86_64mingw.sh
-        │   ├── configure-mac.sh
-        │   ├── configure.sh
-        │   ├── configure-win-i686-mingw.sh
-        │   ├── configure-win-mingw.sh
-        │   └── configure-win-vc.sh
-        ├── configure
-        ├── data
-        │   ├── bill.txt
-        │   ├── commentedfirst.csv
-        │   ├── dataset03.conf
-        │   ├── dataset03.csv
-        │   ├── default-pension.txt
-        │   ├── first.csv
-        │   ├── functiondata.tsv
-        │   ├── input2.txt
-        │   ├── input.txt
-        │   ├── intlist10bis.txt
-        │   ├── intlist10.txt
-        │   ├── intrand35.txt
-        │   ├── label1.csv
-        │   ├── lilla.dat
-        │   ├── methus2.txt
-        │   ├── methus-average.txt
-        │   ├── methus-badluck.txt
-        │   ├── methus.txt
-        │   ├── msout.txt
-        │   ├── mychar.txt
-        │   ├── outdata
-        │   ├── people.ssv
-        │   ├── people.ssv.save
-        │   ├── savedchar.txt
-        │   ├── scanfin.txt
-        │   ├── second.csv
-        │   ├── somechar2.txt
-        │   ├── somechar.txt
-        │   ├── table1x3.csv
-        │   ├── table3x4.csv
-        │   ├── table3x4-rand.csv
-        │   ├── table3x4.tsv
-        │   └── third.csv
-        ├── LICENSE
-        ├── log
-        │   └── err.log
-        ├── Makefile
-        ├── Makefile.lnx
-        ├── obj
-        ├── README
-        └── src
-            ├── 2darray.c
-            ├── 2darrayfun.c
-            ├── AllyGally.c
-            ├── analysis.c
-            ├── analysis.h
-            ├── ansi.c
-            ├── ascii.c
-            ├── assessed.c
-            ├── assignstring.c
-            ├── averageof3.c
-            ├── blowup1.c
-            ├── blowup2.c
-            ├── blowup3.c
-            ├── blowupvc.c
-            ├── bomber.c
-            ├── bonus.c
-            ├── callex.c
-            ├── callval.c
-            ├── charloop.c
-            ├── charme.c
-            ├── charred.c
-            ├── charstats.c
-            ├── color.c
-            ├── continue.c
-            ├── countdwn.c
-            ├── countlines.c
-            ├── couplenames.c
-            ├── crash1.c
-            ├── defines.h
-            ├── dentist.c
-            ├── dumpfunc.c
-            ├── duo.c
-            ├── dynamic1.c
-            ├── exits.h
-            ├── favkey1.c
-            ├── fibonacci.c
-            ├── first
-            ├── first.c
-            ├── forreal.c
-            ├── genie1.c
-            ├── genie2.c
-            ├── genie3.c
-            ├── genie.c
-            ├── greater.c
-            ├── greater-orig.c
-            ├── head.h
-            ├── height.c
-            ├── hellof.c
-            ├── hellomsf.c
-            ├── htest.c
-            ├── hundred.c
-            ├── insult2.c
-            ├── insult3.c
-            ├── insults.c
-            ├── isanumber.c
-            ├── jupiter.c
-            ├── kitty2.c
-            ├── kitty3.c
-            ├── kitty.c
-            ├── lardo.c
-            ├── lardoxx.c
-            ├── largest.c
-            ├── letters.c
-            ├── literals.c
-            ├── lobby3.c
-            ├── lobby.c
-            ├── madlib2.c
-            ├── madlib.c
-            ├── main.c
-            ├── Matuselah.c
-            ├── meals2.c
-            ├── meals.c
-            ├── methus2.c
-            ├── methus3.c
-            ├── methus4.c
-            ├── methus5.c
-            ├── methus5-stdin.c
-            ├── nested.c
-            ├── ollyolly.c
-            ├── pellets.c
-            ├── pension.c
-            ├── puthchars.c
-            ├── random_num_list.c
-            ├── rangeloop.c
-            ├── rangesteploop.c
-            ├── readdynamic.c
-            ├── readfile.c
-            ├── README
-            ├── scandir.c
-            ├── scanfile.c
-            ├── scanning2.c
-            ├── scanning.c
-            ├── showchars.c
-            ├── simple.c
-            ├── simplecolor.c
-            ├── sizes.c
-            ├── strings.c
-            ├── structures.c
-            ├── sums.c
-            ├── taxes.c
-            ├── testscanf.c
-            ├── teststderr.c
-            ├── teststrigvec.c
-            ├── testtable.c
-            ├── threenames.c
-            ├── typer1.c
-            ├── ui.c
-            ├── useanalysis.c
-            ├── wc.c
-            ├── weather2.c
-            ├── weather.c
-            ├── weatherEU.c
-            ├── which.c
-            ├── words2lines.c
-            └── writefile.c
+## Documentation
+this method allow to generate documentation
+extracting it automatically from the comments
+that are in the code, when the relevant content 
+is put with proper tags.
+### to create it, type:
+    doxygen
+this will generate a folder named doc
+and inside it 2 sub-folders named html and latex
 
-            6 directories, 161 files
+		doc
+        	├── html
+        	├── latex
+
+the documentation in html format (hypertext) can be read
+with your web browser of choice (google-chrome, firefox, edge, ...)
+opening the file named index.html inside the doc/html (sub)folder.
+The documentation can be generated in pdf format entering at the prompt
+of your terminal in the folder doc/latex and typing
+
+	make
+
+A file named *refman.pdf* containing the auto-generated documentation.
+## Content
+### here the contained files list
+    ../cexamples
+    ├── bin
+    ├── config
+    │   ├── configurecrossi686mingw.sh
+    │   ├── configurecrossx86_64mingw.sh
+    │   ├── configure-mac.sh
+    │   ├── configure.sh
+    │   ├── configure-win-i686-mingw.sh
+    │   ├── configure-win-mingw.sh
+    │   └── configure-win-vc.sh
+    ├── configure
+    ├── data
+    │   ├── bill.txt
+    │   ├── commentedfirst.csv
+    │   ├── dataset03.conf
+    │   ├── dataset03.csv
+    │   ├── default-pension.txt
+    │   ├── first.csv
+    │   ├── functiondata.tsv
+    │   ├── input2.txt
+    │   ├── input.txt
+    │   ├── intlist10bis.txt
+    │   ├── intlist10.txt
+    │   ├── intrand35.txt
+    │   ├── label1.csv
+    │   ├── lilla.dat
+    │   ├── methus2.txt
+    │   ├── methus-average.txt
+    │   ├── methus-badluck.txt
+    │   ├── methus.txt
+    │   ├── msout.txt
+    │   ├── mychar.txt
+    │   ├── outdata
+    │   ├── people.ssv
+    │   ├── people.ssv.save
+    │   ├── savedchar.txt
+    │   ├── scanfin.txt
+    │   ├── second.csv
+    │   ├── somechar2.txt
+    │   ├── somechar.txt
+    │   ├── table1x3.csv
+    │   ├── table3x4.csv
+    │   ├── table3x4-rand.csv
+    │   ├── table3x4.tsv
+    │   └── third.csv
+    ├── Doxyfile
+    ├── infile1.typ
+    ├── LICENSE
+    ├── log
+    │   └── err.log
+    ├── obj
+    ├── README
+    ├── README.html
+    ├── README.md
+    ├── README.txt
+    └── src
+        ├── 2darray.c
+        ├── 2darrayfun.c
+        ├── alert2.c
+        ├── alert.c
+        ├── AllyGally.c
+        ├── altnames.c
+        ├── analysis.c
+        ├── analysis.h
+        ├── ansi.c
+        ├── ascii.c
+        ├── assessed.c
+        ├── assignstring.c
+        ├── averageof3.c
+        ├── bases.c
+        ├── blowup1.c
+        ├── blowup2.c
+        ├── blowup3.c
+        ├── blowupvc.c
+        ├── bomber.c
+        ├── bonus.c
+        ├── callex.c
+        ├── callval.c
+        ├── charcode.c
+        ├── charloop.c
+        ├── charme.c
+        ├── charred.c
+        ├── charstats.c
+        ├── color.c
+        ├── continue.c
+        ├── countdwn.c
+        ├── countlines.c
+        ├── couplenames.c
+        ├── crash1.c
+        ├── defines.h
+        ├── dentist.c
+        ├── dumpfunc.c
+        ├── duo.c
+        ├── dynamic1.c
+        ├── exits.h
+        ├── favkey1.c
+        ├── fgetline.c
+        ├── fibonacci.c
+        ├── first.c
+        ├── forreal.c
+        ├── genie1.c
+        ├── genie2.c
+        ├── genie3.c
+        ├── genie.c
+        ├── getline.c
+        ├── greater.c
+        ├── greater-orig.c
+        ├── head.h
+        ├── height.c
+        ├── hellof.c
+        ├── hellomsf.c
+        ├── htest.c
+        ├── hundred.c
+        ├── insult2.c
+        ├── insult3.c
+        ├── insults.c
+        ├── isanumber.c
+        ├── jupiter.c
+        ├── kitty2.c
+        ├── kitty3.c
+        ├── kitty.c
+        ├── lardo.c
+        ├── lardoxx.c
+        ├── largest.c
+        ├── letters.c
+        ├── literals.c
+        ├── lobby3.c
+        ├── lobby.c
+        ├── madlib2.c
+        ├── madlib.c
+        ├── main.c
+        ├── Matuselah.c
+        ├── meals2.c
+        ├── meals.c
+        ├── methus2.c
+        ├── methus3.c
+        ├── methus4.c
+        ├── methus5.c
+        ├── methus5-stdin.c
+        ├── nested.c
+        ├── ollyolly.c
+        ├── pellets.c
+        ├── pension.c
+        ├── printout.c
+        ├── puthchars.c
+        ├── random_num_list.c
+        ├── rangeloop.c
+        ├── rangesteploop.c
+        ├── readdynamic.c
+        ├── readfile.c
+        ├── README
+        ├── rhodium.c
+        ├── scandir.c
+        ├── scanfile.c
+        ├── scanning2.c
+        ├── scanning.c
+        ├── showchars.c
+        ├── simple.c
+        ├── simplecolor.c
+        ├── sizes.c
+        ├── strings.c
+        ├── structures.c
+        ├── sums.c
+        ├── taxes.c
+        ├── testscanf.c
+        ├── teststderr.c
+        ├── teststrigvec.c
+        ├── testtable.c
+        ├── threenames.c
+        ├── toobig.c
+        ├── typer1.c
+        ├── ui.c
+        ├── useanalysis.c
+        ├── wc.c
+        ├── weather2.c
+        ├── weather.c
+        ├── weatherEU.c
+        ├── which.c
+        ├── words2lines.c
+        └── writefile.c
+
+    6 directories, 173 files

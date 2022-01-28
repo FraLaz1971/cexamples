@@ -130,7 +130,8 @@ of your terminal in the folder doc/latex and typing
 
 	make
 
-A file named *refman.pdf* containing the auto-generated documentation.
+After the latex compiling process is completed, a file named *refman.pdf* containing 
+the auto-generated documentation will lay in the same directory.
 ## Content
 ### here the contained files list
     ../cexamples
