@@ -108,7 +108,8 @@ after you learned how to run the examples on the [terminal](https://en.wikipedia
 	config/configure-win-vc.sh  > Makefile.vc
 	mingw32-make -f Makefile.vc
 ###
-## to create the documentation, type:
+## Documentation
+### to create it, type:
 this method allow to generate documentation
 automatically extracting from the comments
 are added in the code, if proper tags are filled
