@@ -117,7 +117,7 @@ with the relevant content.
 this will generate a folder named doc
 and inside it 2 sub-folders named html and latex
 
-	doc
+		doc
         	├── html
         	├── latex
 
