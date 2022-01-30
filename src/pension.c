@@ -93,8 +93,8 @@ int main()
     printf("%s contributed to Social Security for %i years.\n", citizen,ycontributed);
     printf("%s paid %.2f$ in contribution to Social security\n", citizen, total_paid);
     printf("%s collected from Social Security for %i years.\n", citizen,yreceived);
-    printf("%s received %i monthly pension installments, %.2f each\n", citizen,tot_pmonths, monthly_income);
-    printf("for a total of %i\n", total_received);
+    printf("%s received %i monthly pension installments, %.2f $ each\n", citizen,tot_pmonths, monthly_income);
+    printf("for a total of %i $\n", total_received);
     return 0;
 }
 
