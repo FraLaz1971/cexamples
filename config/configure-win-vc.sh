@@ -64,7 +64,7 @@ done
     echo -e '\t$(CP) *.obj obj'
     echo -e '\t$(RM) $(RMTARGETS)'
     echo -e '\t$(RM) $(OBJ)'
-	echo '.PHONY: clean'
+	echo '.PHONY: clean distclean'
 	echo 'clean:'
 	echo -e "\t"'$(RM) $(OBJ) $(RMTARGETS) '
 	echo 'distclean: clean'

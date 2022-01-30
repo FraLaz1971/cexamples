@@ -1,6 +1,8 @@
-/* scanf use and simple computation example 
+/* scanf use and simple computation example
  * need 6 input values on stdin
  * citizen-name death-age job-start-age job-stop-age monthly-salary contribution-rate
+ * citizen-name should be a single string without any space, e.g.
+ * John, or JohnDoe or john_doe, or L.Bird, or LadyBird or similar ...
  */
 #include <stdio.h>
 #include <stdlib.h>
