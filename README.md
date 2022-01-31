@@ -15,7 +15,8 @@ can be used as well, but our advice is to do it after you learned how to run the
 on the [terminal](https://en.wikipedia.org/wiki/Terminal_emulator). 
 Note that to run a program, the operating system have to address the filename of an executable file.
 For instance the compilation of the file called pension.c may lead to the generation of the executable
-file called *pension* on unix-like OS or *pension.exe* on MS win / FreeDOS / WINE / ReactOS ... .
+file called *pension* on GNU-Linux or BSD or MacOS, ... and instead *pension.exe* 
+on MS win / FreeDOS / WINE / ReactOS ... .
 When you are at the prompt of a terminal console, you should write the relative or absolute path
 of the executable file name or just the filename if the PATH is included among the paths 
 saved in the list of the PATH environment variable.
