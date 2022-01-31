@@ -127,9 +127,15 @@ we suppose you are inside the src folder with the command prompt.
 ### to recompile without DEBUG printing
 	rm -i meals2 src/meals2.o
 	make src/meals2
-### to compile on MS win using MSVC (tested with MSVC 2008 64bit)
+### to compile on MS win using MSVC + mingw32-make
+(tested with MSVC 2008 64bit)
 	config/configure-win-vc.sh  > Makefile.vc
 	mingw32-make -f Makefile.vc
+### to compile on MS win using MSVC + nmake
+this is native with the Microsoft build-chain
+	
+	nmake /f Makefile.vc
+
 ###
 ## Documentation
 this method allow to generate documentation
