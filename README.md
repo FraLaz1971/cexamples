@@ -24,7 +24,7 @@ When you run the program on an IDE, the path to the executable file is written i
 configuration files of the IDE and executed by a subprocess that address the actual executable file.
 When you run the executable file at the command prompt of a terminal console, the file is executed
 typing at the keyboard the executable file name and then pushing enter. 
-The linked tutorial may also help: 
+The following linked tutorial may also help: 
 [https://www3.ntu.edu.sg/home/ehchua/programming/cpp/gcc_make.html](https://www3.ntu.edu.sg/home/ehchua/programming/cpp/gcc_make.html)
 
 ### to compile all the examples type
