@@ -146,7 +146,7 @@ and inside it 2 sub-folders named html and latex
         	├── latex
 
 the documentation in html format (hypertext) can be read
-with your web browser of choice (google-chrome, firefox, edge, ...)
+with your web browser of choice (google-chrome, firefox, edge, opera, ...)
 opening the file named index.html inside the doc/html (sub)folder.
 The documentation can be generated in pdf format entering at the prompt
 of your terminal in the folder doc/latex and typing
@@ -155,6 +155,16 @@ of your terminal in the folder doc/latex and typing
 
 After the latex compiling process is completed, a file named *refman.pdf* containing 
 the auto-generated documentation will lay in the same directory.
+##
+When you are in the MS Win mingw terminal (because the app is expected to work outside
+the msys2 / msys or cygwin environment) you may use
+
+	mingw32-make
+
+This is a more general case, so should be used as much as possible.
+For more instructions on how to use the make build system, you can refer to the
+[GNU make](https://www.gnu.org/software/make) official documentation.
+
 ## Content
 ### here the contained files list
     ../cexamples
