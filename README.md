@@ -129,8 +129,10 @@ we suppose you are inside the src folder with the command prompt.
 	make src/meals2
 ### to compile on MS win using MSVC + mingw32-make
 (tested with MSVC 2008 64bit)
+
 	config/configure-win-vc.sh  > Makefile.vc
 	mingw32-make -f Makefile.vc
+
 ### to compile on MS win using MSVC + nmake
 this is native with the Microsoft build-chain
 	
