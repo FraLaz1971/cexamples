@@ -21,7 +21,7 @@ When you are at the prompt of a terminal console, you should write the relative 
 of the executable file name or just the filename if the specific path is included among the paths 
 saved in the list of the PATH environment variable.
 When you run the program on an IDE, the path to the executable file is written in the internal
-configuration files of the IDE and executed by a subprocess that address the actual executable file.
+configuration files of the IDE (project) and executed by a subprocess that address the actual executable file.
 When you run the executable file at the command prompt of a terminal console, the file is executed
 typing at the keyboard the executable file name and then pushing enter. 
 The following linked tutorial may also help: 
