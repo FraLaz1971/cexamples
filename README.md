@@ -4,7 +4,7 @@ from Dan Gookin (2004) book [C for dummies](https://www.amazon.com/C-Dummies-Dan
 ## How To
 First, the instruction on how to run the examples will be given for a unix-like environment 
 like GNU/Linux or MacOS or [msys2](https://www.msys2.org) on Microsoft Windows, 
-with the gcc c compiler yet installed.
+with the [gcc](https://gcc.gnu.org/) c compiler yet installed.
 For a detailed description on how to setup the needed environment and the c compiler, read
 the documentation of your operating system or ask to the local expert of your lab/company.
 You need a text editor. Microsoft notepad is *NOT* suitable, our advice is to use
@@ -14,8 +14,8 @@ An Integrated Development Environment [IDE](https://en.wikipedia.org/wiki/Integr
 can be used as well, but our advice is to do it after you learned how to run the examples 
 on the [terminal](https://en.wikipedia.org/wiki/Terminal_emulator). 
 Note that to run a program, the operating system have to address the filename of an executable file.
-For instance the compilation of the file pension.c may lead to the generation of the executable
-file called *pension* on unix-like OS ro *pension.exe* on MS win / FreeDOS / WINE / ReactOS ... .
+For instance the compilation of the file called pension.c may lead to the generation of the executable
+file called *pension* on unix-like OS or *pension.exe* on MS win / FreeDOS / WINE / ReactOS ... .
 When you are at the prompt of a terminal console, you should write the relative or absolute path
 of the executable file name or just the filename if the PATH is included among the paths 
 saved in the list of the PATH environment variable.
