@@ -2,15 +2,30 @@
 simple examples in c language inspired to the examples
 from Dan Gookin (2004) book [C for dummies](https://www.amazon.com/C-Dummies-Dan-Gookin-2004-05-07/dp/B00E3FZLO8)
 ## How To
-First, the instruction on how to run the examples will be given for a unix-like environment like GNU/Linux or MacOS or
-[msys2](https://www.msys2.org) on Microsoft Windows, with the gcc c compiler yet installed.
-For a detailed description on how to setup the needed environment and the c compiler read
+First, the instruction on how to run the examples will be given for a unix-like environment 
+like GNU/Linux or MacOS or [msys2](https://www.msys2.org) on Microsoft Windows, 
+with the gcc c compiler yet installed.
+For a detailed description on how to setup the needed environment and the c compiler, read
 the documentation of your operating system or ask to the local expert of your lab/company.
 You need a text editor. Microsoft notepad is *NOT* suitable, our advice is to use
 KDE Advanced Text Editor ( [Kate](https://kate-editor.org/get-it/) ).
-The commands will be given typing few commands at the terminal. 
-An Integrated Development Environment can be used as well, but our advice is to do it
-after you learned how to run the examples on the [terminal](https://en.wikipedia.org/wiki/Terminal_emulator).
+The commands will be given typing few commands at the terminal emulator. 
+An Integrated Development Environment [IDE](https://en.wikipedia.org/wiki/Integrated_development_environment) 
+can be used as well, but our advice is to do it after you learned how to run the examples 
+on the [terminal](https://en.wikipedia.org/wiki/Terminal_emulator). 
+Note that to run a program, the operating system have to address the filename of an executable file.
+For instance the compilation of the file pension.c may lead to the generation of the executable
+file called *pension* on unix-like OS ro *pension.exe* on MS win / FreeDOS / WINE / ReactOS ... .
+When you are at the prompt of a terminal console, you should write the relative or absolute path
+of the executable file name or just the filename if the PATH is included among the paths 
+saved in the list of the PATH environment variable.
+When you run the program on an IDE, the path to the executable file is written in the internal
+configuration files of the IDE and executed by a subprocess that address the actual executable file.
+When you run the executable file at the command prompt of a terminal console, the file is executed
+typing at the keyboard the executable file name and then pushing enter. 
+The following tutorial may also help 
+[https://www3.ntu.edu.sg/home/ehchua/programming/cpp/gcc_make.html](https://www3.ntu.edu.sg/home/ehchua/programming/cpp/gcc_make.html)
+
 ### to compile all the examples type
 	./configure
 ### then type
@@ -60,6 +75,7 @@ we suppose you are inside the src folder with the command prompt.
 	./methus-stdin <data/methus-badluck.txt
 # ... and so on
 #### execution attempts
+	francesco@squirrel:~/projects/c_cpp/cexamples$ ./methus2 
 	How old was Methuselah?old
 	Methuselah was 0 years old.
 	francesco@squirrel:~/projects/c_cpp/cexamples$ ./methus2 
