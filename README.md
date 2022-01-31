@@ -86,22 +86,22 @@ we suppose you are inside the src folder with the command prompt.
 	francesco@squirrel:~/projects/c_cpp/cexamples$ src/pension 
 	enter name of Citizen (without any space):Francesco_Lazzarotto
 	enter age of death:78
-	enter age of job start:15 
+	enter age of job start:15
 	enter age of job stop:76
 	enter monthly salary($):2000
 	enter contribution rate(%):22
 
 	Francesco_Lazzarotto started his job at 15 years.
 	Francesco_Lazzarotto stopped to work at 76 years.
-	Francesco_Lazzarotto died at 78 years.
+	Francesco_Lazzarotto died 78 years old.
 	Francesco_Lazzarotto monthly salary was 2000$.
 	Francesco_Lazzarotto monthly contribution rate was 22%.
 	Francesco_Lazzarotto paid monthly to social security 440.00$.
 	Francesco_Lazzarotto contributed to Social Security for 61 years.
 	Francesco_Lazzarotto paid 322080.00$ in contribution to Social security
 	Francesco_Lazzarotto collected from Social Security for 2 years.
-	Francesco_Lazzarotto received 24 monthly pension installments, 500.00 each
-	for a total of 12000
+	Francesco_Lazzarotto received 24 monthly pension installments, 500.00$ each
+	for a total of 12000$
 
 ### jupiter.c ---> do some astronomy and distance units computation and conversions
 ### usage
